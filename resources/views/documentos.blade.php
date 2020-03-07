@@ -4,6 +4,8 @@
 	<title></title>
 </head>
 <body>
-{{ $parametros[0]->CNOMBREEMPRESA }}
+@foreach($documentos as $documento)
+{{ $documento->CFECHA->format('d-m-Y') }}
+@endforeach
 </body>
 </html>
