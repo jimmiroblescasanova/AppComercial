@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+    <title></title>
 </head>
 <body>
-@foreach($documentos as $documento)
-{{ $documento->CFECHA->format('d-m-Y') }}
+    Hola estos son los movimientos:
+@foreach($movimientos as $movimiento)
+    {{ $movimiento->CIDDOCUMENTO }} <br>
 @endforeach
 </body>
 </html>
