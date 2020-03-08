@@ -2,24 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\Documentos;
 use App\Agentes;
+use App\Documentos;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class ReporteComisionController extends Controller
 {
     //
     public function index()
     {
         $agentes = Agentes::pluck('CNOMBREAGENTE', 'CIDAGENTE');
         //return dd($agentes);
-
-        return view('home', [
+        return view('comisiones.parametros', [
             'agentes' => $agentes,
         ]);
     }
 
-    public function reporteComisiones(Request $request)
+    public function reporte(Request $request)
     {
         $agente = Agentes::firstWhere('CIDAGENTE', $request->id_agente);
 
@@ -34,7 +33,7 @@ class HomeController extends Controller
         $totales = $documentos->sum('CTOTAL');
         //return dump($documentos);
 
-        return view('comisiones.index', [
+        return view('comisiones.reporte', [
             'agente' => $agente,
             'documentos' => $documentos,
             'total_general' => $documentos->sum('CTOTAL'),

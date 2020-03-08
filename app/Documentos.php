@@ -24,7 +24,7 @@ class Documentos extends Model
 
     public function comision()
     {
-        return round( ( $this->attributes['CTOTAL'] / 1.16 ) * 0.03 );
+        return round( ($this->attributes['CTOTAL'] / 1.16) * 0.03 );
     }
 
     public function getCTOTALAttribute()
