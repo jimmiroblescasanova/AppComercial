@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function(){
+Route::get('/', function () {
     return view('home');
 })->name('home');
 
@@ -11,3 +11,6 @@ Route::post('/comisiones', 'ReporteComisionController@reporte')->name('comisione
 
 Route::get('/saldos', 'ReporteSaldosController@index')->name('saldos.index');
 Route::post('/saldos', 'ReporteSaldosController@reporte')->name('saldos.reporte');
+
+Route::get('/documentos/{id}', 'DocumentosController@ver')->name('documentos.ver');
+Route::get('/documentos/{id}/export', 'DocumentosController@export')->name('documentos.export');

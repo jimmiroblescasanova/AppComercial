@@ -9,12 +9,12 @@ class Documentos extends Model
     protected $table = 'dbo.admDocumentos';
 
     protected $dates = [
-    	'CFECHA',
+        'CFECHA',
     ];
 
     protected $casts = [
         'CFOLIO' => 'integer',
-        // 'CTOTAL' => 'double',
+        'CTOTAL' => 'double',
     ];
 
     public function concepto()
@@ -22,14 +22,18 @@ class Documentos extends Model
         return $this->belongsTo('App\Conceptos', 'CIDCONCEPTODOCUMENTO', 'CIDCONCEPTODOCUMENTO');
     }
 
+    public function agente()
+    {
+        return $this->belongsTo('App\Agentes', 'CIDAGENTE', 'CIDAGENTE');
+    }
+
+    public function cliente()
+    {
+        return $this->belongsTo('App\Clientes', 'CIDCLIENTEPROVEEDOR', 'CIDCLIENTEPROVEEDOR');
+    }
+
     public function comision()
     {
-        return round( ($this->attributes['CTOTAL'] / 1.16) * 0.03 );
+        return round(($this->attributes['CTOTAL'] / 1.16) * 0.03);
     }
-
-    public function getCTOTALAttribute()
-    {
-        return round($this->attributes['CTOTAL']/1.16);
-    }
-
 }

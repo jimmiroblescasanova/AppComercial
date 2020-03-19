@@ -9,33 +9,31 @@ use Illuminate\Support\Facades\DB;
 
 class ReporteSaldosController extends Controller
 {
-    //
     public function index()
     {
-        # code...
         $agentes = Agentes::pluck('CNOMBREAGENTE', 'CIDAGENTE');
 
-        return view('saldos.index', [
+        return view('saldos.parametros', [
             'agentes' => $agentes,
         ]);
     }
 
     public function reporte(Request $request)
     {
-        # code...
-        $documentos = Documentos::select('CRFC', 'CRAZONSOCIAL', DB::raw('SUM("CPENDIENTE") as saldo_total'))
-        ->groupBy('CRFC', 'CRAZONSOCIAL')
-        ->where([
-            ['CIDAGENTE', $request->agente],
-            ['CPENDIENTE', '>', 0],
-            ['CIDDOCUMENTODE', 4],
-            ['CFECHA', '<=', $request->fecha],
-        ])->get();
+        $documentos = Documentos::select('CIDCLIENTEPROVEEDOR', 'CRFC', 'CRAZONSOCIAL', DB::raw('SUM("CPENDIENTE") as saldo_total'))
+            ->groupBy('CIDCLIENTEPROVEEDOR', 'CRFC', 'CRAZONSOCIAL')
+            ->where([
+                ['CIDAGENTE', $request->agente],
+                ['CPENDIENTE', '>', 0],
+                ['CIDDOCUMENTODE', 4],
+                ['CFECHA', '<=', $request->fecha],
+            ])->get();
 
 
         return view('saldos.reporte', [
             'documentos' => $documentos,
             'agente' => Agentes::firstWhere('CIDAGENTE', $request->agente),
+            'pendienteTotal' => $documentos->sum('saldo_total'),
         ]);
     }
 }

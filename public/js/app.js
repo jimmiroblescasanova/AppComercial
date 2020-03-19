@@ -37052,7 +37052,7 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // window.$ = window.jQuery = require("jquery");
 
 /***/ }),
 
@@ -37119,8 +37119,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! c:\wamp64\www\app\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! c:\wamp64\www\app\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\laragon\www\app\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\laragon\www\app\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

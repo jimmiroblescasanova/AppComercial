@@ -13,7 +13,7 @@
                             <input class="form-control" type="date" name="fecha" id="fecha" required>
                         </div>
                         <div class="form-gruop">
-                            <label for="agente">Agente:</label>
+                            <label for="agente">Agente de cobro:</label>
                             <select class="form-control" name="agente" id="agente">
                                 @foreach ($agentes as $id => $agente)
                                     <option value="{{ $id }}">{{ $agente }}</option>
