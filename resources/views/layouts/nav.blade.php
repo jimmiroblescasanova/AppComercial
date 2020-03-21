@@ -9,13 +9,13 @@
       <li class="nav-item active">
         <a class="nav-link" href="{{ route('home') }}">Inicio <span class="sr-only">(current)</span></a>
     </li>
-    <li class="nav-item dropdown">
+    {{-- <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Reportes</a>
         <div class="dropdown-menu" aria-labelledby="dropdown01">
           <a class="dropdown-item" href="{{ route('comisiones.parametros') }}">Comisiones</a>
-          <a class="dropdown-item" href="{{ route('saldos.index') }}">Saldos vencidos</a>
+          <a class="dropdown-item" href="{{ route('saldos.parametros') }}">Saldos vencidos</a>
       </div>
-  </li>
+  </li> --}}
 </ul>
 <form class="form-inline my-2 my-lg-0">
   <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">

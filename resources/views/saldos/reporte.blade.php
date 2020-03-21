@@ -10,23 +10,26 @@
                     Opciones
                     </button>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="">Exportar XLS</a>
+                    <a class="dropdown-item" href="{{ route('saldos.export', [$data["agente"], $data["fecha"]]) }}">Exportar XLS</a>
                     {{-- <a class="dropdown-item" href="#">Another action</a>
                     <a class="dropdown-item" href="#">Something else here</a> --}}
                     </div>
                 </div>
             </h4>
-            <div class="row">
-                <div class="col-sm-4">
-                    <table class="table">
+            <div class="row justify-content-end">
+                <div class="col-12 col-md-4">
+                    <table class="table table-sm">
+                        <thead class="thead-dark">
+                            <th colspan="2" class="text-center">Totales</th>
+                        </thead>
                         <tbody>
                             <tr>
                                 <td>Saldo global:</td>
-                                <td class="text-right">{{ convertir_a_numero($pendienteTotal) }}</td>
+                                <td class="text-right">$ {{ convertir_a_numero($pendienteTotal) }}</td>
                             </tr>
                             <tr>
                                 <td>2% cartera vencida:</td>
-                                <td class="text-right">{{ convertir_a_numero($pendienteTotal*0.02) }}</td>
+                                <td class="text-right">$ {{ convertir_a_numero($pendienteTotal*0.02) }}</td>
                             </tr>
                         </tbody>
                     </table>

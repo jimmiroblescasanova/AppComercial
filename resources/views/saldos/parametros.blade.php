@@ -2,10 +2,10 @@
 
 @section('content')
     <div class="row">
-        <div class="col-sm-12">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Reporte de Saldos Vencidos</h4>
+                    <h4 class="card-title">Reporte de Cartera Vencida (Global)</h4>
                     <form action="{{ route('saldos.reporte') }}" role="form" method="POST">
                         @csrf
                         <div class="form-group">
@@ -21,7 +21,8 @@
                             </select>
                         </div>
                         <div class="form-group mt-3">
-                            <input type="submit" class="btn btn-block btn-primary" value="Ejecutar">
+                            <button type="submit" class="btn btn-primary btn-block">Ejecutar</button>
+                            <a class="btn btn-link btn-block" href="{{ route('home') }}" role="button">Atrás</a>
                         </div>
                     </form>
                 </div>

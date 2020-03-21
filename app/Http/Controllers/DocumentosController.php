@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Documentos;
+use App\Exports\DocumentosExport;
 use Maatwebsite\Excel\Facades\Excel;
-use App\Exports\SaldoDocumentosExport;
 
 class DocumentosController extends Controller
 {
@@ -22,14 +22,12 @@ class DocumentosController extends Controller
 
         return view('documentos.reporte', [
             'documentos' => $documentos,
-            'total' => $documentos->SUM('CTOTAL'),
-            'pendiente' => $documentos->SUM('CPENDIENTE'),
             'id' => $id,
         ]);
     }
 
     public function export($id)
     {
-        return Excel::download(new SaldoDocumentosExport($id), 'saldos-' . NOW()->format('Y-m-d') . '.xlsx');
+        return Excel::download(new DocumentosExport($id), 'saldos-' . NOW()->format('Y-m-d') . '.xlsx');
     }
 }

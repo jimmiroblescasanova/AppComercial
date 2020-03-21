@@ -6,6 +6,8 @@ use App\Agentes;
 use App\Documentos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\CarteraVencidaExport;
 
 class ReporteSaldosController extends Controller
 {
@@ -29,11 +31,22 @@ class ReporteSaldosController extends Controller
                 ['CFECHA', '<=', $request->fecha],
             ])->get();
 
+        $data = [
+            'agente' => $request->agente,
+            'fecha' => $request->fecha,
+        ];
+
+        // return dd($data);
 
         return view('saldos.reporte', [
             'documentos' => $documentos,
-            'agente' => Agentes::firstWhere('CIDAGENTE', $request->agente),
             'pendienteTotal' => $documentos->sum('saldo_total'),
+            'data' => $data,
         ]);
+    }
+
+    public function export($agente, $fecha)
+    {
+        return Excel::download(new CarteraVencidaExport($agente, $fecha), 'carteravencida-' . NOW()->format('Y-m-d') . '.xlsx');
     }
 }

@@ -7,7 +7,7 @@ use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\FromView;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 
-class SaldoDocumentosExport implements FromView, ShouldAutoSize
+class DocumentosExport implements FromView, ShouldAutoSize
 {
     public function __construct($id)
     {
@@ -16,15 +16,14 @@ class SaldoDocumentosExport implements FromView, ShouldAutoSize
 
     public function view(): View
     {
-        return view('exports.saldo-clientes', [
+        return view('exports.documentos', [
             'documentos' => Documentos::query()->where([
                 ['CIDCLIENTEPROVEEDOR', $this->id],
                 ['CCANCELADO', 0],
                 ['CPENDIENTE', '>', '0.01'],
-            ])->where(function($sql){
+            ])->where(function ($sql) {
                 $sql->where('CIDDOCUMENTODE', 4)->orWhere('CIDDOCUMENTODE', 7);
             })->orderBy('CFECHA')->get()
         ]);
     }
-
 }

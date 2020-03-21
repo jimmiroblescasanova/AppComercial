@@ -11,8 +11,6 @@
                     </button>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" href="{{ route('documentos.export', $id) }}">Exportar XLS</a>
-                    {{-- <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a> --}}
                     </div>
                 </div>
             </h4>
@@ -44,13 +42,6 @@
                         </tr>
                         @endforeach
                     </tbody>
-                </table>
-                <table class="table">
-                    <tr>
-                        <td class="text-right">TOTALES:</td>
-                        <td class="text-right"><strong>{{ convertir_a_numero($total) }}</strong></td>
-                        <td class="text-right"><strong>{{ convertir_a_numero($pendiente) }}</strong></td>
-                    </tr>
                 </table>
             </div>
         </div>
