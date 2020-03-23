@@ -10,7 +10,7 @@
                     @csrf
                     <div class="form-group">
                         <label for="agente">Nombre del agente:</label>
-                        <select class="form-control" name="id_agente" id="agente">
+                        <select class="form-control" name="id_agente" id="agente" required>
                             @foreach ($agentes as $key => $agente)
                             <option value="{{ $key }}">{{ $agente }}</option>
                             @endforeach
@@ -18,11 +18,11 @@
                     </div>
                     <div class="form-group">
                         <label for="fecha_inicial">Fecha inicial:</label>
-                        <input class="form-control" type="date" name="fecha_inicial">
+                        <input class="form-control" type="date" name="fecha_inicial" required>
                     </div>
                     <div class="form-group">
                         <label for="fecha_final">Fecha final:</label>
-                        <input class="form-control" type="date" name="fecha_final">
+                        <input class="form-control" type="date" name="fecha_final" required>
                     </div>
                     <div class="form-group">
                         <input class="btn btn-block btn-primary" type="submit" value="Enviar">

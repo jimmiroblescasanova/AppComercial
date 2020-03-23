@@ -14,7 +14,7 @@
                         </div>
                         <div class="form-gruop">
                             <label for="agente">Agente de cobro:</label>
-                            <select class="form-control" name="agente" id="agente">
+                            <select class="form-control" name="agente" id="agente" required>
                                 @foreach ($agentes as $id => $agente)
                                     <option value="{{ $id }}">{{ $agente }}</option>
                                 @endforeach

@@ -15,10 +15,10 @@
                             Reporte de cartera vencida (global)
                             <a href="{{ route('saldos.parametros') }}">Ejecutar</a>
                         </li>
-                        <li class="list-group-item d-flex justify-content-between">
+                        {{-- <li class="list-group-item d-flex justify-content-between">
                             Reporte de cartera vencida (detallado por cliente)
                             <a href="">Ejecutar</a>
-                        </li>
+                        </li> --}}
                     </ul>
                 </div>
             </div>
