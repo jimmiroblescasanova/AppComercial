@@ -18,7 +18,7 @@
          <td>{{ $documento->CFOLIO }}</td>
          <td>{{ $documento->CRAZONSOCIAL }}</td>
          <td>{{ $documento->concepto->CNOMBRECONCEPTO }}</td>
-         <td>{{ $documento->CTOTAL }}</td>
+         <td>{{ $documento->CTOTAL/1.16 }}</td>
          <td>{{ $documento->comision() }}</td>
       </tr>
       @endforeach

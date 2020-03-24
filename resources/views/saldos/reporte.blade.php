@@ -52,8 +52,8 @@
                             <td></td>
                             <td>{{ $documento->cliente->CCODIGOCLIENTE }}</td>
                             <td>{{ $documento->CRAZONSOCIAL }}</td>
-                            <td class="text-right">{{ convertir_a_numero($documento->saldo_total) }}</td>
-                            <td class="text-right">{{ convertir_a_numero($documento->saldo_total*0.02) }}</td>
+                            <td class="text-right">{{ convertir_a_numero($documento->saldo_total/1.16) }}</td>
+                            <td class="text-right">{{ convertir_a_numero( ($documento->saldo_total/1.16) *0.02) }}</td>
                             <td class="text-right"><a href="{{ route('documentos.ver', $documento->CIDCLIENTEPROVEEDOR) }}" class="btn btn-primary btn-sm">Ver doctos</a></td>
                         </tr>
                     @endforeach

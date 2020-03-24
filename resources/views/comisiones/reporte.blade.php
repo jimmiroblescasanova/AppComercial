@@ -52,7 +52,7 @@
                            <th>folio</th>
                            <th>cliente</th>
                            <th>concepto</th>
-                           <th>total</th>
+                           <th>subtotal</th>
                            <th>comision</th>
                         </tr>
                      </thead>
@@ -65,7 +65,7 @@
                            <td>{{ $documento->CFOLIO }}</td>
                            <td>{{ $documento->CRAZONSOCIAL }}</td>
                            <td>{{ $documento->concepto->CNOMBRECONCEPTO }}</td>
-                           <td class="text-right">$ {{ convertir_a_numero($documento->CTOTAL) }}</td>
+                           <td class="text-right">$ {{ convertir_a_numero($documento->CTOTAL/1.16) }}</td>
                            <td class="text-right">$ {{ convertir_a_numero($documento->comision()) }}</td>
                         </tr>
                         @endforeach

@@ -18,8 +18,8 @@
             <td>{{ $documento->CSERIEDOCUMENTO }}</td>
             <td>{{ $documento->CFOLIO }}</td>
             <td>{{ $documento->agente->CNOMBREAGENTE }}</td>
-            <td class="text-right">{{ convertir_a_numero($documento->CTOTAL) }}</td>
-            <td class="text-right">{{ convertir_a_numero($documento->CPENDIENTE) }}</td>
+            <td class="text-right">{{ $documento->CTOTAL }}</td>
+            <td class="text-right">{{ $documento->CPENDIENTE }}</td>
         </tr>
         @endforeach
     </tbody>

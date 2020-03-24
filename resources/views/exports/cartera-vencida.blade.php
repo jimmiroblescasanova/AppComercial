@@ -12,8 +12,8 @@
             <tr>
                 <td>{{ $documento->cliente->CCODIGOCLIENTE }}</td>
                 <td>{{ $documento->CRAZONSOCIAL }}</td>
-                <td>{{ $documento->saldo_total }}</td>
-                <td>{{ $documento->saldo_total*0.02 }}</td>
+                <td>{{ $documento->saldo_total/1.16 }}</td>
+                <td>{{ ($documento->saldo_total/1.16)*0.02 }}</td>
             </tr>
         @endforeach
     </tbody>
