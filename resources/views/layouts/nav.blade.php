@@ -21,5 +21,9 @@
   <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
   <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
 </form>
+<form action="{{ route('logout') }}" method="POST" class="mx-2">
+  @csrf
+  <button class="btn btn-danger">Salir</button>
+</form>
 </div>
 </nav>

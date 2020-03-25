@@ -2,9 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+Route::get('/', 'DashboardController@index')->name('home');
+
+Route::get('/login', 'Auth\LoginController@login')->name('login');
+Route::post('/authenticate', 'Auth\LoginController@authenticate')->name('authenticate');
+Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::get('/comisiones', 'ReporteComisionController@index')->name('comisiones.parametros');
 Route::post('/comisiones', 'ReporteComisionController@reporte')->name('comisiones.reporte');

@@ -20,7 +20,7 @@ class DocumentosController extends Controller
                     ->orWhere('CIDDOCUMENTODE', 7);
             })->get();
 
-        return view('documentos.reporte', [
+        return view('reportes.documentos.reporte', [
             'documentos' => $documentos,
             'id' => $id,
         ]);

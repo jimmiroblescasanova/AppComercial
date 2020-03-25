@@ -15,7 +15,7 @@ class ReporteComisionController extends Controller
     {
         $agentes = Agentes::pluck('CNOMBREAGENTE', 'CIDAGENTE');
 
-        return view('comisiones.parametros', [
+        return view('reportes.comisiones.parametros', [
             'agentes' => $agentes,
         ]);
     }
@@ -30,7 +30,7 @@ class ReporteComisionController extends Controller
             ->whereBetween('CFECHA', [$request->fecha_inicial, $request->fecha_final])
             ->get();
 
-        return view('comisiones.reporte', [
+        return view('reportes.comisiones.reporte', [
             'agente' => Agentes::firstWhere('CIDAGENTE', $request->id_agente),
             'total_general' => $documentos->sum('CTOTAL'),
             'documentos' => $documentos,
