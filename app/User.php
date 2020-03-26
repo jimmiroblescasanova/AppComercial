@@ -36,4 +36,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function makeBadge()
+    {
+        if ($this->attributes['active']) {
+            return '<span class="badge badge-success">Activo</span>';
+        } else {
+            return '<span class="badge badge-danger">Inactivo</span>';
+        }
+    }
 }

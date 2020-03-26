@@ -10882,3 +10882,11 @@ a.text-dark:focus {
   }
 }
 
+@media (max-width: 767.98px) {
+  .btn-block-xs-only {
+    display: block;
+    margin-top: 5px;
+    width: 100%;
+  }
+}
+

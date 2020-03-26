@@ -15,6 +15,7 @@ class UsersTableSeeder extends Seeder
             'name' => 'Administrador',
             'email' => 'jimmirobles@icloud.com',
             'password' => Hash::make('password'),
+            // 'active' => true,
         ]);
     }
 }
