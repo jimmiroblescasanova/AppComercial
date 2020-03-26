@@ -10,7 +10,7 @@
                     Opciones
                     </button>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="{{ route('saldos.export', [$data["agente"], $data["fecha"]]) }}">Exportar XLS</a>
+                    <a class="dropdown-item" href="{{ route('admin.saldos.export', [$data["agente"], $data["fecha"]]) }}">Exportar XLS</a>
                     {{-- <a class="dropdown-item" href="#">Another action</a>
                     <a class="dropdown-item" href="#">Something else here</a> --}}
                     </div>
@@ -54,7 +54,7 @@
                             <td>{{ $documento->CRAZONSOCIAL }}</td>
                             <td class="text-right">{{ convertir_a_numero($documento->saldo_total/1.16) }}</td>
                             <td class="text-right">{{ convertir_a_numero( ($documento->saldo_total/1.16) *0.02) }}</td>
-                            <td class="text-right"><a href="{{ route('documentos.ver', $documento->CIDCLIENTEPROVEEDOR) }}" class="btn btn-primary btn-sm">Ver doctos</a></td>
+                            <td class="text-right"><a href="{{ route('admin.documentos.ver', $documento->CIDCLIENTEPROVEEDOR) }}" class="btn btn-primary btn-sm">Ver doctos</a></td>
                         </tr>
                     @endforeach
                 </tbody>

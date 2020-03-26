@@ -10,7 +10,11 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class ReporteComisionController extends Controller
 {
-    //
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
+
     public function index()
     {
         $agentes = Agentes::pluck('CNOMBREAGENTE', 'CIDAGENTE');
@@ -23,7 +27,7 @@ class ReporteComisionController extends Controller
     public function reporte(Request $request)
     {
         $documentos = Documentos::where('CIDAGENTE', $request->id_agente)
-            ->where(function($query) {
+            ->where(function ($query) {
                 $query->where('CIDDOCUMENTODE', 9)
                     ->orWhere('CIDDOCUMENTODE', 12);
             })

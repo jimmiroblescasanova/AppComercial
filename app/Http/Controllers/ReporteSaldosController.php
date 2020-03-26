@@ -11,6 +11,11 @@ use App\Exports\CarteraVencidaExport;
 
 class ReporteSaldosController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
+
     public function index()
     {
         $agentes = Agentes::pluck('CNOMBREAGENTE', 'CIDAGENTE');

@@ -10,7 +10,7 @@
                     Opciones
                     </button>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="{{ route('documentos.export', $id) }}">Exportar XLS</a>
+                    <a class="dropdown-item" href="{{ route('admin.documentos.export', $id) }}">Exportar XLS</a>
                     </div>
                 </div>
             </h4>

@@ -6,7 +6,7 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Comisiones del mes</h4>
-                <form role="form" action="{{ route('comisiones.reporte') }}" method="POST">
+                <form role="form" action="{{ route('admin.comisiones.reporte') }}" method="POST">
                     @csrf
                     <div class="form-group">
                         <label for="agente">Nombre del agente:</label>

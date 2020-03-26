@@ -12,7 +12,7 @@
                      Opciones
                     </button>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="{{ route('comisiones.export', [$data->id_agente, $data->fecha_inicial, $data->fecha_final]) }}">Exportar XLS</a>
+                    <a class="dropdown-item" href="{{ route('admin.comisiones.export', [$data->id_agente, $data->fecha_inicial, $data->fecha_final]) }}">Exportar XLS</a>
                     </div>
                </div>
             </h4>
