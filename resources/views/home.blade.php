@@ -5,7 +5,7 @@
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-body">
-                    <p class="display-4">Inicio</p>
+                    <p class="display-4">Inicio, {{ Auth::user()->email }}</p>
                     <ul class="list-group">
                         <li class="list-group-item d-flex justify-content-between">
                             Reporte de comisiones del mes

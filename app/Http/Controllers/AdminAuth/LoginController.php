@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\AdminAuth;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    function __construct()
+    public function __construct()
     {
         $this->middleware('guest')->except('logout');
         $this->middleware('guest:admin')->except('logout');
@@ -16,7 +16,7 @@ class LoginController extends Controller
 
     public function login()
     {
-        return view('auth.login');
+        return view('auth.adminLogin');
     }
 
     public function validateLogin()
@@ -26,19 +26,17 @@ class LoginController extends Controller
             'password' => 'required|string',
         ]);
 
-        $credentials['active'] = true;
-
-        if (Auth::attempt($credentials)) {
-            return redirect()->intended('/');
+        if (Auth::guard('admin')->attempt($credentials)) {
+            return redirect()->intended('/admin/dashboard');
         }
 
-        return back()->with('info', 'Credenciales incorrectas o usuario inactivo.');
+        return back()->with('info', 'Credenciales incorrectas.');
     }
 
     public function logout()
     {
-        Auth::logout();
+        Auth::guard('admin')->logout();
 
-        return redirect('/login');
+        return redirect('/admin/login');
     }
 }

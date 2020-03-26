@@ -22,7 +22,7 @@
 
    <button class="btn btn-lg btn-primary btn-block" type="submit">Ingresar</button>
    <a href="{{ route('register') }}" class="btn btn-block btn-link">Registrarme</a>
-   <a href="" class="btn btn-block btn-link">Soy colaborador</a>
+   <a href="{{ route('admin.login') }}" class="btn btn-block btn-link">Soy colaborador</a>
    <p class="mt-5 mb-3 text-muted">&copy; 2020</p>
 </form>
 

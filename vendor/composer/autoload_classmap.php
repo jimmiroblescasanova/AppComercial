@@ -6,6 +6,8 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AdminsTableSeeder' => $baseDir . '/database/seeds/AdminsTableSeeder.php',
+    'App\\Admin' => $baseDir . '/app/Admin.php',
     'App\\Agentes' => $baseDir . '/app/Agentes.php',
     'App\\Clientes' => $baseDir . '/app/Clientes.php',
     'App\\Conceptos' => $baseDir . '/app/Conceptos.php',
@@ -15,11 +17,15 @@ return array(
     'App\\Exports\\CarteraVencidaExport' => $baseDir . '/app/Exports/CarteraVencidaExport.php',
     'App\\Exports\\ComisionesExport' => $baseDir . '/app/Exports/ComisionesExport.php',
     'App\\Exports\\DocumentosExport' => $baseDir . '/app/Exports/DocumentosExport.php',
+    'App\\Http\\Controllers\\AdminAuth\\LoginController' => $baseDir . '/app/Http/Controllers/AdminAuth/LoginController.php',
     'App\\Http\\Controllers\\Auth\\LoginController' => $baseDir . '/app/Http/Controllers/Auth/LoginController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
+    'App\\Http\\Controllers\\DashboardController' => $baseDir . '/app/Http/Controllers/DashboardController.php',
     'App\\Http\\Controllers\\DocumentosController' => $baseDir . '/app/Http/Controllers/DocumentosController.php',
+    'App\\Http\\Controllers\\RegisterController' => $baseDir . '/app/Http/Controllers/RegisterController.php',
     'App\\Http\\Controllers\\ReporteComisionController' => $baseDir . '/app/Http/Controllers/ReporteComisionController.php',
     'App\\Http\\Controllers\\ReporteSaldosController' => $baseDir . '/app/Http/Controllers/ReporteSaldosController.php',
+    'App\\Http\\Controllers\\UsersController' => $baseDir . '/app/Http/Controllers/UsersController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',
     'App\\Http\\Middleware\\CheckForMaintenanceMode' => $baseDir . '/app/Http/Middleware/CheckForMaintenanceMode.php',

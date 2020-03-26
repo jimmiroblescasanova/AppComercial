@@ -9,6 +9,9 @@
          <li class="nav-item active">
             <a class="nav-link" href="{{ route('home') }}">Inicio <span class="sr-only">(current)</span></a>
          </li>
+         <li class="nav-item">
+            <a class="nav-link" href="{{ route('admin.dashboard') }}">Admin site</a>
+         </li>
          <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Reportes</a>
             <div class="dropdown-menu" aria-labelledby="dropdown01">
@@ -23,11 +26,7 @@
             </div>
          </li>
       </ul>
-      {{-- <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-      </form> --}}
-      <form action="{{ route('logout') }}" method="POST" class="mx-2">
+      <form action="{{ Auth::guard('admin')->check() ? route('admin.logout') : route('logout') }}" method="POST" class="mx-2">
          @csrf
          <button class="btn btn-danger btn-block-xs-only">Salir</button>
       </form>

@@ -4,15 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class DashboardController extends Controller
+class HomeController extends Controller
 {
     function __construct()
     {
-        $this->middleware('auth:admin');
+        $this->middleware('auth');
     }
 
     public function index()
     {
-        return view('admin.dashboard');
+        return view('home');
     }
 }
