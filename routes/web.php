@@ -10,7 +10,8 @@ Route::namespace('Auth')->group(function () {
     Route::post('/validate', 'LoginController@validateLogin')->name('validate');
     Route::post('/logout', 'LoginController@logout')->name('logout');
 
-    Route::get('/registro', 'RegisterController@index')->name('register');
+    Route::get('/registro', 'RegisterController@create')->name('register');
+    Route::post('/registro', 'RegisterController@store')->name('register.store');
 });
 
 // Rutas establecidas para el panel de admin
@@ -38,5 +39,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/documentos/export/{id}', 'DocumentosController@export')->name('documentos.export');
     });
 
-    Route::get('/usuarios', 'UsersController@index')->name('users');
+    Route::prefix('clientes')->group(function () {
+        Route::get('/', 'UsersController@index')->name('users');
+        Route::get('/activate/{id}', 'UsersController@activate')->name('users.activate');
+    });
 });

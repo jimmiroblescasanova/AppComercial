@@ -17,6 +17,7 @@ class AdminsTableSeeder extends Seeder
             'name' => 'Administrador',
             'email' => 'jimmirobles@hotmail.com',
             'password' => Hash::make('password'),
+            'superAdmin' => true,
         ]);
     }
 }

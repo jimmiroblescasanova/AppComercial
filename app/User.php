@@ -2,9 +2,10 @@
 
 namespace App;
 
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -16,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'rfc', 'password',
     ];
 
     /**
@@ -44,5 +45,15 @@ class User extends Authenticatable
         } else {
             return '<span class="badge badge-danger">Inactivo</span>';
         }
+    }
+
+    public function setPasswordAttribute($pass)
+    {
+        $this->attributes['password'] = Hash::make($pass);
+    }
+
+    public function setRfcAttribute($rfc)
+    {
+        return $this->attributes['rfc'] = strtoupper($rfc);
     }
 }

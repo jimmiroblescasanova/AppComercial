@@ -18,9 +18,15 @@
                 </div>
             </li>
             <li class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" id="dropdown-users" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Usuarios</a>
+                <a href="#" class="nav-link dropdown-toggle" id="dropdown-users" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Clientes</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown-users">
                     <a href="{{ route('admin.users') }}" class="dropdown-item">Listado</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" id="dropdown-admins" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Usuarios</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown-admins">
+                    <a href="" class="dropdown-item">Listado</a>
                 </div>
             </li>
           @else
