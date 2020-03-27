@@ -8,6 +8,11 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class DocumentosController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
+
     public function ver($id)
     {
         $documentos = Documentos::where([

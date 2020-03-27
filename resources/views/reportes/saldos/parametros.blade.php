@@ -6,7 +6,7 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Reporte de Cartera Vencida (Global)</h4>
-                    <form action="{{ route('saldos.reporte') }}" role="form" method="POST">
+                    <form action="{{ route('admin.saldos.reporte') }}" role="form" method="POST">
                         @csrf
                         <div class="form-group">
                             <label for="fecha">Fecha de corte:</label>
