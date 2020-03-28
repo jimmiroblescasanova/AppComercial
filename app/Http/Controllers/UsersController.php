@@ -16,7 +16,7 @@ class UsersController extends Controller
 
     public function index()
     {
-        return view('clientes.index', [
+        return view('admin.clientes.index', [
             'users' => User::all(),
         ]);
     }

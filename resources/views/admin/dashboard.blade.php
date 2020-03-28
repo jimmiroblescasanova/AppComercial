@@ -1,23 +1,18 @@
 @extends('layouts.main')
 
+@section('content-title', 'Inicio')
+
 @section('content')
-    Bienvenido al admin site {{ Auth::guard('admin')->user()->email }}
-    <div class="row">
-      <div class="col-xs-1-12">
-        <div class="card">
-          <div class="card-body">
-            <h3 class="card-title">Title</h3>
-            <p class="card-text">Text</p>
-          </div>
+    <!-- Default box -->
+    <div class="card">
+        <div class="card-body">
+            Bienvenido al admin site: {{ Auth::guard('admin')->user()->email }}
         </div>
-      </div>
-      <div class="col-xs-1-12">
-        <div class="card">
-          <div class="card-body">
-            <h3 class="card-title">Title</h3>
-            <p class="card-text">Text</p>
-          </div>
+        <!-- /.card-body -->
+        <div class="card-footer">
+            Footer
         </div>
-      </div>
+        <!-- /.card-footer-->
     </div>
+    <!-- /.card -->
 @endsection

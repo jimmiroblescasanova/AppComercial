@@ -45,7 +45,7 @@
 
             <div class="social-auth-links text-center mb-3">
                 <p>- Otras opciones -</p>
-                <a href="#" class="btn btn-block btn-primary">
+                <a href="{{ route('register') }}" class="btn btn-block btn-primary">
                     <i class="fas fa-user-circle mr-2"></i> Registrarme
                 </a>
                 <a href="{{ route('admin.login') }}" class="btn btn-block btn-danger">
