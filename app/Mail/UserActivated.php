@@ -11,14 +11,13 @@ class UserActivated extends Mailable
 {
     use Queueable, SerializesModels;
 
-    /**
-     * Create a new message instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public $subject = 'Tu usuario ha sido activado';
+
+    public $usuario;
+
+    public function __construct($usuario)
     {
-        //
+        $this->usuario = $usuario;
     }
 
     /**
@@ -28,6 +27,8 @@ class UserActivated extends Mailable
      */
     public function build()
     {
-        return $this->markdown('mails.usuario-activado');
+        return $this->markdown('mails.usuario-activado', [
+            'usuario' => $this->usuario,
+        ]);
     }
 }

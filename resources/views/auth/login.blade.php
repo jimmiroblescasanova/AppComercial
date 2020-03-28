@@ -11,7 +11,7 @@
    @csrf
    <img class="mb-4" src="{{ asset('/logo.png') }}" alt="" height="72">
 
-   <h1 class="h3 mb-3 font-weight-normal">Login de clientes</h1>
+   <h1 class="h3 mb-3 font-weight-normal"><i class="far fa-user"></i> Login de clientes</h1>
    <label for="email" class="sr-only">Correo electrónico</label>
    <input type="email" id="email" class="form-control" name="email" placeholder="Correo" value="{{ old('email', 'jimmirobles@icloud.com') }}" autofocus>
    {!! $errors->first('email', '<span class="text-muted">:message</span>') !!}

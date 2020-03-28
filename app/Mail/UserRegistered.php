@@ -11,23 +11,19 @@ class UserRegistered extends Mailable
 {
     use Queueable, SerializesModels;
 
-    /**
-     * Create a new message instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public $subject = 'Nuevo cliente registrado';
+
+    public $cliente;
+
+    public function __construct($cliente)
     {
-        //
+        $this->cliente = $cliente;
     }
 
-    /**
-     * Build the message.
-     *
-     * @return $this
-     */
     public function build()
     {
-        return $this->markdown('mails.usuario-registrado');
+        return $this->markdown('mails.usuario-registrado', [
+            'cliente' => $this->cliente,
+        ]);
     }
 }

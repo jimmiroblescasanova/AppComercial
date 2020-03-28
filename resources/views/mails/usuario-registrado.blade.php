@@ -1,7 +1,7 @@
 @component('mail::message')
-# Nuevo cliente
+# Notificación
 
-Ha realizado el registro de un nuevo cliente.
+Se ha realizado el registro de un nuevo cliente.
 
 @component('mail::button', ['url' => ''])
 Ir a clientes
