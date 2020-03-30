@@ -11,11 +11,10 @@
                         <thead>
                         <tr>
                             <th></th>
-                            <th>id</th>
+                            <th>id </th>
                             <th>nombre</th>
                             <th>rfc</th>
                             <th>email</th>
-                            <th>código comercial</th>
                             <th>activo</th>
                             <th>opciones</th>
                         </tr>
@@ -28,7 +27,6 @@
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->rfc }}</td>
                                 <td>{{ $user->email }}</td>
-                                <td></td>
                                 <td>{!! $user->makeBadge() !!}</td>
                                 <td>
                                     <div class="dropdown">

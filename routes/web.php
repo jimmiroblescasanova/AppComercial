@@ -18,9 +18,9 @@ Route::prefix('clientes')->name('clients.')->group(function () {
     Route::get('/', 'HomeController@index')->name('home');
 
     // Rutas para los pedidos
-    Route::get('/pedidos', 'OrdersController@index')->name('order.index');
-    Route::get('/pedidos/crear', 'OrdersController@create')->name('order.create');
-    Route::post('/pedidos/crear', 'OrdersController@store')->name('order.store');
+    Route::get('/pedidos', 'PublicOrdersController@index')->name('order.index');
+    Route::get('/pedidos/crear', 'PublicOrdersController@create')->name('order.create');
+    Route::post('/pedidos/crear', 'PublicOrdersController@store')->name('order.store');
 });
 
 // Rutas establecidas para el panel de admin
@@ -50,6 +50,12 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
     Route::prefix('pedidos')->group(function () {
         Route::get('/', 'PedidosController@index')->name('pedidos');
+    });
+
+    Route::prefix('agentes')->group(function (){
+        Route::get('/', 'AdminAgentsController@index')->name('agents.index');
+        Route::get('/create', 'AdminAgentsController@create')->name('agents.create');
+        Route::post('/create', 'AdminAgentsController@store')->name('agents.store');
     });
 
     Route::prefix('clientes')->group(function () {

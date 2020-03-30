@@ -7,7 +7,7 @@ use App\Orders;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class OrdersController extends Controller
+class PublicOrdersController extends Controller
 {
     public function __construct()
     {

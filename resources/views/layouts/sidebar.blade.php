@@ -50,9 +50,15 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('admin.users') }}" class="nav-link">
+                        <a href="{{ route('admin.users') }}" class="nav-link {{ setActive('admin.users') }}">
                             <i class="nav-icon fas fa-users"></i>
                             <p>Clientes</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('admin.agents.index') }}" class="nav-link {{ setActive('admin.agents.index') }}">
+                            <i class="nav-icon fas fa-users-cog"></i>
+                            <p>Agentes</p>
                         </a>
                     </li>
                     <li class="nav-item has-treeview">
