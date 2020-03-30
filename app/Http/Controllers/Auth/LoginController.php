@@ -29,7 +29,7 @@ class LoginController extends Controller
         $credentials['active'] = true;
 
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('/');
+            return redirect()->intended('/clientes');
         }
 
         return back()->with('info', 'Credenciales incorrectas o usuario inactivo.');
@@ -39,6 +39,6 @@ class LoginController extends Controller
     {
         Auth::logout();
 
-        return redirect('/login');
+        return redirect('/');
     }
 }

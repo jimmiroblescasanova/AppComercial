@@ -20,7 +20,7 @@
                            id="name"
                            class="form-control"
                            placeholder="Nombre completo o razón social"
-                           value="{{ old('name', 'jimmi robles') }}">
+                           value="{{ old('name') }}">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-user"></span>
@@ -36,7 +36,7 @@
                            id="rfc"
                            class="form-control"
                            placeholder="RFC"
-                           value="{{ old('rfc', 'rocj9002272x8') }}">
+                           value="{{ old('rfc') }}">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-fingerprint"></span>
@@ -52,7 +52,7 @@
                            name="email"
                            id="email"
                            placeholder="Email"
-                           value="{{ old('email', 'jimmi@mail.com') }}">
+                           value="{{ old('email') }}">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-envelope"></span>
@@ -90,7 +90,7 @@
                 </div>
 
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Registrarme</button>
-                <a href="{{ route('home') }}" class="btn btn-link btn-block">Atrás</a>
+                <a href="{{ route('clients.home') }}" class="btn btn-link btn-block">Atrás</a>
             </form>
         </div>
         <!-- /.login-card-body -->

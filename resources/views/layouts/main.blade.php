@@ -11,12 +11,31 @@
     <link rel="stylesheet" href="{{ asset('/admin-lte/plugins/fontawesome-free/css/all.min.css') }}">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- SweetAlert2 -->
+    <link rel="stylesheet" href="{{ asset('/admin-lte/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css') }}">
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="{{ asset('/admin-lte/plugins/datatables-bs4/css/dataTables.bootstrap4.css') }}">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css">
+
+    <link rel="stylesheet" href="{{ asset('/admin-lte/plugins/select2/css/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/admin-lte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="{{ asset('/admin-lte/dist/css/adminlte.min.css') }}">
+    <style>
+        @media all and (max-width:768px) {
+            .calculator tr {
+                display: table;
+                width:100%;
+            }
+            .calculator td {
+                display: table-row;
+            }
+        }
+    </style>
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed">
 <!-- Site wrapper -->
 <div class="wrapper">
     <!-- Navbar -->
@@ -73,17 +92,22 @@
 <script src="{{ asset('/admin-lte/plugins/jquery/jquery.min.js') }}"></script>
 <!-- Bootstrap 4 -->
 <script src="{{ asset('/admin-lte/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<!-- SweetAlert2 -->
+<script src="{{ asset('/admin-lte/plugins/sweetalert2/sweetalert2.min.js') }}"></script>
+{{--@include('sweetalert::alert')--}}
+<!-- DataTables -->
+<script src="{{ asset('/admin-lte/plugins/datatables/jquery.dataTables.js') }}"></script>
+<script src="{{ asset('/admin-lte/plugins/datatables-bs4/js/dataTables.bootstrap4.js') }}"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('/admin-lte/dist/js/adminlte.min.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
 {{--<script src="../../dist/js/demo.js"></script>--}}
 @yield('scripts')
 <script>
-    $(document).ready(function () {
-        $('#logoutButton').on('click', function (event) {
-            event.preventDefault();
-            $('#logoutForm').submit();
-        });
+    $('#logoutButton').on('click', function (event) {
+        event.preventDefault();
+        $('#logoutForm').submit();
     });
 </script>
 </body>

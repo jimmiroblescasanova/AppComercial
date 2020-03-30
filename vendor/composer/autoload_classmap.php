@@ -6,7 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'AdminsTableSeeder' => $baseDir . '/database/seeds/AdminsTableSeeder.php',
+    'AgentsTableSeeder' => $baseDir . '/database/seeds/AgentsTableSeeder.php',
     'App\\Admin' => $baseDir . '/app/Admin.php',
     'App\\Agentes' => $baseDir . '/app/Agentes.php',
     'App\\Clientes' => $baseDir . '/app/Clientes.php',
@@ -24,6 +24,7 @@ return array(
     'App\\Http\\Controllers\\DashboardController' => $baseDir . '/app/Http/Controllers/DashboardController.php',
     'App\\Http\\Controllers\\DocumentosController' => $baseDir . '/app/Http/Controllers/DocumentosController.php',
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
+    'App\\Http\\Controllers\\PedidosController' => $baseDir . '/app/Http/Controllers/PedidosController.php',
     'App\\Http\\Controllers\\ReporteComisionController' => $baseDir . '/app/Http/Controllers/ReporteComisionController.php',
     'App\\Http\\Controllers\\ReporteSaldosController' => $baseDir . '/app/Http/Controllers/ReporteSaldosController.php',
     'App\\Http\\Controllers\\UsersController' => $baseDir . '/app/Http/Controllers/UsersController.php',
@@ -3600,6 +3601,13 @@ return array(
     'Ramsey\\Uuid\\UuidFactory' => $vendorDir . '/ramsey/uuid/src/UuidFactory.php',
     'Ramsey\\Uuid\\UuidFactoryInterface' => $vendorDir . '/ramsey/uuid/src/UuidFactoryInterface.php',
     'Ramsey\\Uuid\\UuidInterface' => $vendorDir . '/ramsey/uuid/src/UuidInterface.php',
+    'RealRashid\\SweetAlert\\Console\\PublishCommand' => $vendorDir . '/realrashid/sweet-alert/src/Console/PublishCommand.php',
+    'RealRashid\\SweetAlert\\Facades\\Alert' => $vendorDir . '/realrashid/sweet-alert/src/Facades/Alert.php',
+    'RealRashid\\SweetAlert\\Storage\\AlertSessionStore' => $vendorDir . '/realrashid/sweet-alert/src/Storage/AlertSessionStore.php',
+    'RealRashid\\SweetAlert\\Storage\\SessionStore' => $vendorDir . '/realrashid/sweet-alert/src/Storage/SessionStore.php',
+    'RealRashid\\SweetAlert\\SweetAlertServiceProvider' => $vendorDir . '/realrashid/sweet-alert/src/SweetAlertServiceProvider.php',
+    'RealRashid\\SweetAlert\\ToSweetAlert' => $vendorDir . '/realrashid/sweet-alert/src/ToSweetAlert.php',
+    'RealRashid\\SweetAlert\\Toaster' => $vendorDir . '/realrashid/sweet-alert/src/Toaster.php',
     'SebastianBergmann\\CodeCoverage\\CodeCoverage' => $vendorDir . '/phpunit/php-code-coverage/src/CodeCoverage.php',
     'SebastianBergmann\\CodeCoverage\\CoveredCodeNotExecutedException' => $vendorDir . '/phpunit/php-code-coverage/src/Exception/CoveredCodeNotExecutedException.php',
     'SebastianBergmann\\CodeCoverage\\Driver\\Driver' => $vendorDir . '/phpunit/php-code-coverage/src/Driver/Driver.php',

@@ -16,7 +16,7 @@
                 <div class="input-group mb-3">
                     <label for="email" class="sr-only">Correo electrónico</label>
                     <input type="email" id="email" class="form-control" name="email" placeholder="Correo"
-                           value="{{ old('email', 'jimmirobles@icloud.com') }}" autofocus>
+                           value="{{ old('email', 'jimmi@gmail.com') }}" autofocus>
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-envelope"></span>
@@ -27,7 +27,7 @@
                 <div class="input-group mb-3">
                     <label for="password" class="sr-only">Contraseña:</label>
                     <input type="password" class="form-control" id="password" name="password" placeholder="Password"
-                           value="password">
+                           value="robles">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-lock"></span>

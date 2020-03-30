@@ -49,7 +49,7 @@ return [
 
         'admin' => [
             'driver' => 'session',
-            'provider' => 'admins',
+            'provider' => 'agents',
         ],
     ],
 
@@ -75,7 +75,7 @@ return [
             'driver' => 'eloquent',
             'model' => App\User::class,
         ],
-        'admins' => [
+        'agents' => [
             'driver' => 'eloquent',
             'model' => App\Admin::class,
         ],

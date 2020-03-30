@@ -2,16 +2,25 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', 'HomeController@index')->name('home');
 
 // Login para usuarios normales
 Route::namespace('Auth')->group(function () {
-    Route::get('/login', 'LoginController@login')->name('login');
+    Route::get('/', 'LoginController@login')->name('login');
     Route::post('/validate', 'LoginController@validateLogin')->name('validate');
     Route::post('/logout', 'LoginController@logout')->name('logout');
 
     Route::get('/registro', 'RegisterController@create')->name('register');
     Route::post('/registro', 'RegisterController@store')->name('register.store');
+});
+
+// Panel de clientes
+Route::prefix('clientes')->name('clients.')->group(function () {
+    Route::get('/', 'HomeController@index')->name('home');
+
+    // Rutas para los pedidos
+    Route::get('/pedidos', 'OrdersController@index')->name('order.index');
+    Route::get('/pedidos/crear', 'OrdersController@create')->name('order.create');
+    Route::post('/pedidos/crear', 'OrdersController@store')->name('order.store');
 });
 
 // Rutas establecidas para el panel de admin
@@ -37,6 +46,10 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
         Route::get('/documentos/{id}', 'DocumentosController@ver')->name('documentos.ver');
         Route::get('/documentos/export/{id}', 'DocumentosController@export')->name('documentos.export');
+    });
+
+    Route::prefix('pedidos')->group(function () {
+        Route::get('/', 'PedidosController@index')->name('pedidos');
     });
 
     Route::prefix('clientes')->group(function () {

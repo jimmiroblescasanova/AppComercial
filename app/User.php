@@ -52,6 +52,11 @@ class User extends Authenticatable
         $this->attributes['password'] = Hash::make($pass);
     }
 
+    public function setNameAttribute($name)
+    {
+        return $this->attributes['name'] = strtoupper($name);
+    }
+
     public function setRfcAttribute($rfc)
     {
         return $this->attributes['rfc'] = strtoupper($rfc);

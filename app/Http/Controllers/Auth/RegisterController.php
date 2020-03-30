@@ -29,6 +29,7 @@ class RegisterController extends Controller
 
         Mail::to(env('MAIL_TO_ADMIN'))->send(new UserRegistered($cliente));
 
-        return redirect('/login')->with('info', 'Se ha registrado correctamente, recibiras un correo de confirmación cuando tu cuenta haya sido activada.');
+        return redirect('/')
+            ->with('info', 'Se ha registrado correctamente, recibirás un correo de confirmación cuando tu cuenta haya sido activada.');
     }
 }
