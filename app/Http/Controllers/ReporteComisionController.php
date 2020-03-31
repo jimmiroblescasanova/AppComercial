@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Agentes;
-use App\Documentos;
+use App\admAgentes;
+use App\admDocumentos;
 use Illuminate\Http\Request;
 use App\Exports\ComisionesExport;
 use Maatwebsite\Excel\Facades\Excel;
@@ -17,7 +17,7 @@ class ReporteComisionController extends Controller
 
     public function index()
     {
-        $agentes = Agentes::pluck('CNOMBREAGENTE', 'CIDAGENTE');
+        $agentes = admAgentes::pluck('CNOMBREAGENTE', 'CIDAGENTE');
 
         return view('reportes.comisiones.parametros', [
             'agentes' => $agentes,
@@ -26,7 +26,7 @@ class ReporteComisionController extends Controller
 
     public function reporte(Request $request)
     {
-        $documentos = Documentos::where('CIDAGENTE', $request->id_agente)
+        $documentos = admDocumentos::where('CIDAGENTE', $request->id_agente)
             ->where(function ($query) {
                 $query->where('CIDDOCUMENTODE', 9)
                     ->orWhere('CIDDOCUMENTODE', 12);
@@ -35,7 +35,7 @@ class ReporteComisionController extends Controller
             ->get();
 
         return view('reportes.comisiones.reporte', [
-            'agente' => Agentes::firstWhere('CIDAGENTE', $request->id_agente),
+            'agente' => admAgentes::firstWhere('CIDAGENTE', $request->id_agente),
             'total_general' => $documentos->sum('CTOTAL'),
             'documentos' => $documentos,
             'data' => $request,

@@ -2,7 +2,7 @@
 
 namespace App\Exports;
 
-use App\Documentos;
+use App\admDocumentos;
 use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\FromView;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
@@ -18,8 +18,8 @@ class ComisionesExport implements FromView, ShouldAutoSize
 
     public function view(): View
     {
-        $documentos = Documentos::where('CIDAGENTE', $this->agente)
-            ->where(function($query) {
+        $documentos = admDocumentos::where('CIDAGENTE', $this->agente)
+            ->where(function ($query) {
                 $query->where('CIDDOCUMENTODE', 9)
                     ->orWhere('CIDDOCUMENTODE', 12);
             })

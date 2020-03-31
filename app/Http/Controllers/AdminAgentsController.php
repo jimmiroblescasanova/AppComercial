@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Admin;
-use App\Agentes;
+use App\Agents;
+use App\admAgentes;
 use Illuminate\Http\Request;
 
 class AdminAgentsController extends Controller
@@ -12,14 +12,14 @@ class AdminAgentsController extends Controller
     public function index()
     {
         return view('admin.agents.index', [
-            'agents' => Admin::all(),
+            'agents' => Agents::all(),
         ]);
     }
 
     public function create()
     {
         return view('admin.agents.create', [
-            'agentes' => Agentes::pluck('CNOMBREAGENTE', 'CIDAGENTE')
+            'agentes' => admAgentes::pluck('CNOMBREAGENTE', 'CIDAGENTE')
         ]);
     }
 
@@ -32,7 +32,7 @@ class AdminAgentsController extends Controller
             'id_comercial' => 'unique:Agents,id_comercial',
         ]);
 
-        $agent = new Admin($data);
+        $agent = new Agents($data);
         $agent->save();
 
         return redirect()->route('admin.agents.index')

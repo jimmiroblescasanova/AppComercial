@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class dbProductos extends Model
+class admProductos extends Model
 {
     //
     protected $connection = 'sqlsrv';

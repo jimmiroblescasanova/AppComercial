@@ -77,7 +77,7 @@ return [
         ],
         'agents' => [
             'driver' => 'eloquent',
-            'model' => App\Admin::class,
+            'model' => App\Agents::class,
         ],
 
         // 'users' => [

@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\dbProductos;
-use App\OrderRows;
 use App\Orders;
+use App\OrderRows;
+use App\admProductos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -26,8 +26,7 @@ class PublicOrdersController extends Controller
     public function create()
     {
         return view('public.orders.create', [
-            'productos' => dbProductos::pluck('CNOMBREPRODUCTO', 'CIDPRODUCTO'),
-            'p2' => dbProductos::take(30)->get(),
+            'productos' => admProductos::pluck('CNOMBREPRODUCTO', 'CIDPRODUCTO'),
         ]);
     }
 
@@ -67,7 +66,7 @@ class PublicOrdersController extends Controller
     public function searchPrice(Request $request)
     {
         if (request()->ajax()) {
-            $producto = dbProductos::firstWhere('CIDPRODUCTO', $request->id);
+            $producto = admProductos::firstWhere('CIDPRODUCTO', $request->id);
 
             return response()->json([
                 'precio' => $producto->CPRECIO1,

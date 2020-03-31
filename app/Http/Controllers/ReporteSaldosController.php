@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Agentes;
-use App\Documentos;
+use App\admAgentes;
+use App\admDocumentos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
@@ -18,7 +18,7 @@ class ReporteSaldosController extends Controller
 
     public function index()
     {
-        $agentes = Agentes::pluck('CNOMBREAGENTE', 'CIDAGENTE');
+        $agentes = admAgentes::pluck('CNOMBREAGENTE', 'CIDAGENTE');
 
         return view('reportes.saldos.parametros', [
             'agentes' => $agentes,
@@ -27,7 +27,7 @@ class ReporteSaldosController extends Controller
 
     public function reporte(Request $request)
     {
-        $documentos = Documentos::select('CIDCLIENTEPROVEEDOR', 'CRFC', 'CRAZONSOCIAL', DB::raw('SUM("CPENDIENTE") as saldo_total'))
+        $documentos = admDocumentos::select('CIDCLIENTEPROVEEDOR', 'CRFC', 'CRAZONSOCIAL', DB::raw('SUM("CPENDIENTE") as saldo_total'))
             ->groupBy('CIDCLIENTEPROVEEDOR', 'CRFC', 'CRAZONSOCIAL')
             ->where([
                 ['CIDAGENTE', $request->agente],

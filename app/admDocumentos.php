@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Documentos extends Model
+class admDocumentos extends Model
 {
     protected $connection = 'sqlsrv';
 
@@ -21,17 +21,17 @@ class Documentos extends Model
 
     public function concepto()
     {
-        return $this->belongsTo('App\Conceptos', 'CIDCONCEPTODOCUMENTO', 'CIDCONCEPTODOCUMENTO');
+        return $this->belongsTo('App\admConceptos', 'CIDCONCEPTODOCUMENTO', 'CIDCONCEPTODOCUMENTO');
     }
 
     public function agente()
     {
-        return $this->belongsTo('App\Agentes', 'CIDAGENTE', 'CIDAGENTE');
+        return $this->belongsTo('App\admAgentes', 'CIDAGENTE', 'CIDAGENTE');
     }
 
     public function cliente()
     {
-        return $this->belongsTo('App\Clientes', 'CIDCLIENTEPROVEEDOR', 'CIDCLIENTEPROVEEDOR');
+        return $this->belongsTo('App\admClientes', 'CIDCLIENTEPROVEEDOR', 'CIDCLIENTEPROVEEDOR');
     }
 
     public function comision()

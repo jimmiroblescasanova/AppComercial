@@ -5,12 +5,11 @@ namespace App;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class Admin extends Authenticatable
+class Agents extends Authenticatable
 {
     use Notifiable;
 
     protected $guard = 'admin';
-    protected $table = 'agents';
 
     /**
      * The attributes that are mass assignable.

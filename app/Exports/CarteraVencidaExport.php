@@ -2,7 +2,7 @@
 
 namespace App\Exports;
 
-use App\Documentos;
+use App\admDocumentos;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\FromView;
@@ -18,7 +18,7 @@ class CarteraVencidaExport implements FromView, ShouldAutoSize
 
     public function view(): View
     {
-        $documentos = Documentos::query()->select('CIDCLIENTEPROVEEDOR', 'CRFC', 'CRAZONSOCIAL', DB::raw('SUM("CPENDIENTE") as saldo_total'))
+        $documentos = admDocumentos::query()->select('CIDCLIENTEPROVEEDOR', 'CRFC', 'CRAZONSOCIAL', DB::raw('SUM("CPENDIENTE") as saldo_total'))
             ->groupBy('CIDCLIENTEPROVEEDOR', 'CRFC', 'CRAZONSOCIAL')
             ->where([
                 ['CIDAGENTE', $this->agente],

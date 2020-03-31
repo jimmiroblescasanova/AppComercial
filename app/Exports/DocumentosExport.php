@@ -2,7 +2,7 @@
 
 namespace App\Exports;
 
-use App\Documentos;
+use App\admDocumentos;
 use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\FromView;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
@@ -17,7 +17,7 @@ class DocumentosExport implements FromView, ShouldAutoSize
     public function view(): View
     {
         return view('exports.documentos', [
-            'documentos' => Documentos::query()->where([
+            'documentos' => admDocumentos::query()->where([
                 ['CIDCLIENTEPROVEEDOR', $this->id],
                 ['CCANCELADO', 0],
                 ['CPENDIENTE', '>', '0.01'],

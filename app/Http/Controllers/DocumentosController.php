@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Documentos;
+use App\admDocumentos;
 use App\Exports\DocumentosExport;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -15,7 +15,7 @@ class DocumentosController extends Controller
 
     public function ver($id)
     {
-        $documentos = Documentos::where([
+        $documentos = admDocumentos::where([
             ['CIDCLIENTEPROVEEDOR', $id],
             ['CCANCELADO', 0],
             ['CPENDIENTE', '>', '0.01'],

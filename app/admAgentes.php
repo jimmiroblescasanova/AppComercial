@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Clientes extends Model
+class admAgentes extends Model
 {
     //
     protected $connection = 'sqlsrv';
 
-    protected $table = 'dbo.admClientes';
+    protected $table = 'dbo.admAgentes';
 }
