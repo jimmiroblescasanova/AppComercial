@@ -19,7 +19,6 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('rfc')->unique();
-            $table->string('code')->nullable();
             $table->bigInteger('agent_id')->nullable();
             $table->boolean('active')->default(false);
             $table->rememberToken();

@@ -42,8 +42,8 @@
                                                 <a class="dropdown-item" href="{{ route('admin.users.activate', $user->id) }}">Activar
                                                     cliente</a>
                                             @endif
-                                            @if ($user->code==null)
-                                                <a class="dropdown-item" href="#">Asignar código</a>
+                                            @if ($user->agent_id==null)
+                                                <a class="dropdown-item" href="#" data-agente="{{ $user->id }}">Asignar agente</a>
                                             @else
                                                 <a class="dropdown-item" href="#">Editar código</a>
                                             @endif

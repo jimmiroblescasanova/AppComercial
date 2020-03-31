@@ -18,7 +18,6 @@ class CreateAgentsTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('code')->nullable();
             $table->integer('id_comercial')->nullable();
             $table->boolean('active')->default(true); // 1=Activo, 0=Inactivo
             $table->boolean('superAdmin')->default(false);

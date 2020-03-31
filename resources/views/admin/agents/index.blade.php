@@ -17,7 +17,6 @@
                 <thead>
                 <tr>
                     <th>id comercial</th>
-                    <th>código</th>
                     <th>nombre</th>
                     <th>email</th>
                     <th>&nbsp;</th>
@@ -27,7 +26,6 @@
                 @forelse ($agents as $agent)
                     <tr>
                         <td>{{ $agent->id_comercial }}</td>
-                        <td>{{ $agent->code }}</td>
                         <td>{{ $agent->name }}</td>
                         <td>{{ $agent->email }}</td>
                         <td class="text-right">

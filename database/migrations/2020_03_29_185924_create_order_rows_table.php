@@ -19,7 +19,7 @@ class CreateOrderRowsTable extends Migration
             $table->string('product');
             $table->string('unit');
             $table->double('quantity');
-            $table->double('total');
+            $table->double('price');
             $table->timestamps();
         });
     }

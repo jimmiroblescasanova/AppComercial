@@ -18,7 +18,9 @@ class AdminAgentsController extends Controller
 
     public function create()
     {
-        return view('admin.agents.create');
+        return view('admin.agents.create', [
+            'agentes' => Agentes::pluck('CNOMBREAGENTE', 'CIDAGENTE')
+        ]);
     }
 
     public function store(Request $request)
@@ -27,6 +29,7 @@ class AdminAgentsController extends Controller
             'name' => 'required|string|min:5',
             'email' => 'required|email|unique:agents,email',
             'password' => 'required|string|min:6|confirmed',
+            'id_comercial' => 'unique:Agents,id_comercial',
         ]);
 
         $agent = new Admin($data);

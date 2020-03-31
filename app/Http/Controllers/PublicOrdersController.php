@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\dbProductos;
 use App\OrderRows;
 use App\Orders;
 use Illuminate\Http\Request;
@@ -24,7 +25,10 @@ class PublicOrdersController extends Controller
 
     public function create()
     {
-        return view('public.orders.create');
+        return view('public.orders.create', [
+            'productos' => dbProductos::pluck('CNOMBREPRODUCTO', 'CIDPRODUCTO'),
+            'p2' => dbProductos::take(30)->get(),
+        ]);
     }
 
     public function store(Request $request)
@@ -41,13 +45,16 @@ class PublicOrdersController extends Controller
 
         $producto = $request->producto;
         $cantidad = $request->cantidad;
+        $unidad = $request->unidad;
+        $precio = $request->precio;
 
-        foreach ($producto as $key => $name){
+        foreach ($producto as $key => $name) {
             $order_row_data = [
                 'order_id' => $order->id,
                 'product' => $name,
+                'unit' => $unidad[$key],
                 'quantity' => $cantidad[$key],
-                'total' => '0',
+                'price' => $precio[$key],
             ];
             $row = new OrderRows($order_row_data);
             $row->save();
@@ -55,5 +62,17 @@ class PublicOrdersController extends Controller
 
         return redirect()->route('clients.order.index')
             ->with('success', 'Orden creada correctamente');
+    }
+
+    public function searchPrice(Request $request)
+    {
+        if (request()->ajax()) {
+            $producto = dbProductos::firstWhere('CIDPRODUCTO', $request->id);
+
+            return response()->json([
+                'precio' => $producto->CPRECIO1,
+                'unidad' => $producto->unidad->CNOMBREUNIDAD,
+            ], 200);
+        }
     }
 }

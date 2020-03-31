@@ -30,11 +30,14 @@
                 </div>
                 <div class="form-group">
                     <label for="comercial">Asociar al sistema:</label>
-                    <select class="form-control select2" name="comercial" id="comercial">
-                        <option></option>
-                        <option></option>
-                        <option></option>
+                    <select class="form-control select2" name="id_comercial" id="comercial">
+                        @forelse ($agentes as $id => $nombre)
+                            <option value="{{ $id }}">{{ $nombre }}</option>
+                        @empty
+                            <option value="">Sin agentes</option>
+                        @endforelse
                     </select>
+                    {!! $errors->first('id_comercial', '<span class="text-muted">:message</span>') !!}
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-sm btn-success btn-block"><i class="fas fa-check-circle"></i> Guardar</button>

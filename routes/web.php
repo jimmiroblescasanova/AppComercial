@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+Route::post('/ajax/get-price/', 'PublicOrdersController@searchPrice')->name('ajax.price');
 
 // Login para usuarios normales
 Route::namespace('Auth')->group(function () {
@@ -52,7 +53,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/', 'PedidosController@index')->name('pedidos');
     });
 
-    Route::prefix('agentes')->group(function (){
+    Route::prefix('agentes')->group(function () {
         Route::get('/', 'AdminAgentsController@index')->name('agents.index');
         Route::get('/create', 'AdminAgentsController@create')->name('agents.create');
         Route::post('/create', 'AdminAgentsController@store')->name('agents.store');
