@@ -61,6 +61,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
     Route::prefix('clientes')->group(function () {
         Route::get('/', 'UsersController@index')->name('users');
+        Route::post('/agentAssoc', 'UsersController@agentAssoc')->name('users.agent-assoc');
         Route::get('/activate/{id}', 'UsersController@activate')->name('users.activate');
     });
 });

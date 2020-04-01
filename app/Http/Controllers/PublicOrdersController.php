@@ -35,7 +35,7 @@ class PublicOrdersController extends Controller
         $order_data = [
             'date' => NOW(),
             'user_id' => Auth::user()->id,
-            'agent_id' => '1',
+            'agent_id' => Auth::user()->agent_id,
             'total' => '0',
         ];
 

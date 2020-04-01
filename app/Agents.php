@@ -2,8 +2,9 @@
 
 namespace App;
 
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Agents extends Authenticatable
 {
@@ -17,7 +18,7 @@ class Agents extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'id_comercial',
+        'name', 'email', 'password', 'agent_id',
     ];
 
     /**
@@ -37,4 +38,14 @@ class Agents extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function setPasswordAttribute($psw)
+    {
+        return $this->attributes['password'] = Hash::make($psw);
+    }
+
+    public function agente()
+    {
+        return $this->belongsTo('App\admAgentes', 'agent_id', 'CIDAGENTE');
+    }
 }

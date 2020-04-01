@@ -29,7 +29,7 @@ class AdminAgentsController extends Controller
             'name' => 'required|string|min:5',
             'email' => 'required|email|unique:agents,email',
             'password' => 'required|string|min:6|confirmed',
-            'id_comercial' => 'unique:Agents,id_comercial',
+            'agent_id' => 'unique:Agents,agent_id',
         ]);
 
         $agent = new Agents($data);

@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'rfc', 'password',
+        'name', 'email', 'rfc', 'password', 'agent_id',
     ];
 
     /**
@@ -60,5 +60,10 @@ class User extends Authenticatable
     public function setRfcAttribute($rfc)
     {
         return $this->attributes['rfc'] = strtoupper($rfc);
+    }
+
+    public function agente()
+    {
+        return $this->belongsTo('App\admAgentes', 'agent_id', 'CIDAGENTE');
     }
 }

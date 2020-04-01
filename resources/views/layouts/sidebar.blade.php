@@ -63,7 +63,7 @@
                     </li>
                     <li class="nav-item has-treeview">
                         <a href="#" class="nav-link">
-                            <i class="nav-icon far fa-funnel-dollar"></i>
+                            <i class="nav-icon fas fa-funnel-dollar"></i>
                             <p>Reportes
                                 <i class="right fas fa-angle-left"></i>
                             </p>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Agents;
 use App\Mail\UserActivated;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -18,6 +19,7 @@ class UsersController extends Controller
     {
         return view('admin.clientes.index', [
             'users' => User::all(),
+            'agents' => Agents::pluck('name', 'agent_id'),
         ]);
     }
 
@@ -33,8 +35,18 @@ class UsersController extends Controller
 
         $usuario->save();
 
-//        toast('Success Toast','success')->autoClose(5000);
+        //        toast('Success Toast','success')->autoClose(5000);
         return redirect()->back()
             ->with('success', 'Cliente actualizado correctamente');
+    }
+
+    public function agentAssoc(Request $request)
+    {
+        $cliente = User::find($request->user);
+
+        $cliente->agent_id = $request->agente;
+        $cliente->save();
+
+        return redirect()->route('admin.users');
     }
 }

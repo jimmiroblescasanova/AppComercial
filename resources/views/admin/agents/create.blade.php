@@ -30,7 +30,7 @@
                 </div>
                 <div class="form-group">
                     <label for="comercial">Asociar al sistema:</label>
-                    <select class="form-control select2" name="id_comercial" id="comercial">
+                    <select class="form-control select2" name="agent_id" id="comercial">
                         @forelse ($agentes as $id => $nombre)
                             <option value="{{ $id }}">{{ $nombre }}</option>
                         @empty
