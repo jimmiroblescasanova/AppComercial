@@ -33,8 +33,8 @@
                             <p>Inicio</p>
                         </a>
                     </li>
-                    <li class="nav-item has-treeview">
-                        <a href="#" class="nav-link">
+                    <li class="nav-item has-treeview {{ showMenu('admin.orders.*') }}">
+                        <a href="#" class="nav-link {{ setActive('admin.orders.*')  }}">
                             <i class="nav-icon fas fa-copy"></i>
                             <p>Pedidos
                                 <i class="right fas fa-angle-left"></i>
@@ -42,7 +42,7 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{ route('admin.pedidos') }}" class="nav-link">
+                                <a href="{{ route('admin.orders.index') }}" class="nav-link {{ setActive('admin.orders.index') }}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Listar</p>
                                 </a>
@@ -61,8 +61,8 @@
                             <p>Agentes</p>
                         </a>
                     </li>
-                    <li class="nav-item has-treeview">
-                        <a href="#" class="nav-link">
+                    <li class="nav-item has-treeview {{ showMenu('admin.reportes.*') }}">
+                        <a href="#" class="nav-link {{ setActive('admin.reportes.*') }}">
                             <i class="nav-icon fas fa-funnel-dollar"></i>
                             <p>Reportes
                                 <i class="right fas fa-angle-left"></i>
@@ -70,7 +70,7 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{ route('admin.comisiones.parametros') }}" class="nav-link">
+                                <a href="{{ route('admin.reportes.comisiones.parametros') }}" class="nav-link {{ setActive('admin.reportes.comisiones.*') }}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Comisiones</p>
                                 </a>
@@ -78,7 +78,7 @@
                         </ul>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{ route('admin.saldos.parametros') }}" class="nav-link">
+                                <a href="{{ route('admin.reportes.saldos.parametros') }}" class="nav-link {{ setActive('admin.reportes.saldos.*') }}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Saldos vencidos</p>
                                 </a>

@@ -20,7 +20,7 @@ class ReporteSaldosController extends Controller
     {
         $agentes = admAgentes::pluck('CNOMBREAGENTE', 'CIDAGENTE');
 
-        return view('reportes.saldos.parametros', [
+        return view('admin.reportes.saldos.parametros', [
             'agentes' => $agentes,
         ]);
     }
@@ -43,7 +43,7 @@ class ReporteSaldosController extends Controller
 
         // return dd($data);
 
-        return view('reportes.saldos.reporte', [
+        return view('admin.reportes.saldos.reporte', [
             'documentos' => $documentos,
             'pendienteTotal' => $documentos->sum('saldo_total'),
             'data' => $data,

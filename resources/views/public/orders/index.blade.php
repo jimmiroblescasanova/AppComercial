@@ -27,7 +27,7 @@
                             <td>{{ $order->id }}</td>
                             <td>{{ $order->date->format('Y-m-d') }}</td>
                             <td>{{ $order->date->format('h:i a') }}</td>
-                            <td></td>
+                            <td class="text-right">$ {{ convertir_a_numero($order->total) }}</td>
                             <td class="text-center">{{ makeBadgeOrders(1) }}</td>
                             <td class="text-right">
                                 <button class="btn btn-xs btn-primary"><i class="fas fa-eye"></i> Ver</button>

@@ -19,17 +19,25 @@ function makeBadgeOrders($status)
 {
     switch ($status){
         case 1:
-            echo '<span class="badge badge-pill badge-info">Enviada</span>';
+            return '<span class="badge badge-pill badge-info">Enviada</span>';
             break;
         case 2:
-            echo '<span class="badge badge-pill badge-warning">Atendida</span>';
+            return '<span class="badge badge-pill badge-warning">Atendida</span>';
             break;
         case 3:
-            echo '<span class="badge badge-pill badge-success">Completada</span>';
+            return '<span class="badge badge-pill badge-success">Completada</span>';
             break;
         case 0:
-            echo '<span class="badge badge-pill badge-danger">Cancelada</span>';
+            return '<span class="badge badge-pill badge-danger">Cancelada</span>';
             break;
     }
-    return;
+}
+
+function makeBadgeStatus($active)
+{
+    if ($active) {
+        return '<span class="badge badge-success">Activo</span>';
+    } else {
+        return '<span class="badge badge-danger">Inactivo</span>';
+    }
 }

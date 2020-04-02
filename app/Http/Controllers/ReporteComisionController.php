@@ -19,7 +19,7 @@ class ReporteComisionController extends Controller
     {
         $agentes = admAgentes::pluck('CNOMBREAGENTE', 'CIDAGENTE');
 
-        return view('reportes.comisiones.parametros', [
+        return view('admin.reportes.comisiones.parametros', [
             'agentes' => $agentes,
         ]);
     }

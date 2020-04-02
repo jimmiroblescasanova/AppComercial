@@ -37,12 +37,12 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
     // Rutas para los reportes
     Route::prefix('reportes')->group(function () {
-        Route::get('/comisiones', 'ReporteComisionController@index')->name('comisiones.parametros');
-        Route::post('/comisiones', 'ReporteComisionController@reporte')->name('comisiones.reporte');
+        Route::get('/comisiones', 'ReporteComisionController@index')->name('reportes.comisiones.parametros');
+        Route::post('/comisiones', 'ReporteComisionController@reporte')->name('reportes.comisiones.reporte');
         Route::get('/comisiones/export/{agente}/{fInicial}/{fFinal}', 'ReporteComisionController@export')->name('comisiones.export');
 
-        Route::get('/saldos', 'ReporteSaldosController@index')->name('saldos.parametros');
-        Route::post('/saldos', 'ReporteSaldosController@reporte')->name('saldos.reporte');
+        Route::get('/saldos', 'ReporteSaldosController@index')->name('reportes.saldos.parametros');
+        Route::post('/saldos', 'ReporteSaldosController@reporte')->name('reportes.saldos.reporte');
         Route::get('/saldos/export/{agente}/{fecha}', 'ReporteSaldosController@export')->name('saldos.export');
 
         Route::get('/documentos/{id}', 'DocumentosController@ver')->name('documentos.ver');
@@ -50,7 +50,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
     });
 
     Route::prefix('pedidos')->group(function () {
-        Route::get('/', 'PedidosController@index')->name('pedidos');
+        Route::get('/', 'AdminOrdersController@index')->name('orders.index');
+        Route::get('/{id}/ver', 'AdminOrdersController@show')->name('orders.show');
     });
 
     Route::prefix('agentes')->group(function () {

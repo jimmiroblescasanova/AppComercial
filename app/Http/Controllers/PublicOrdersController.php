@@ -42,11 +42,12 @@ class PublicOrdersController extends Controller
         $order = new Orders($order_data);
         $order->save();
 
-        $producto = $request->producto;
+        $producto = $request->input('producto');
         $cantidad = $request->cantidad;
         $unidad = $request->unidad;
         $precio = $request->precio;
 
+        $total = 0;
         foreach ($producto as $key => $name) {
             $order_row_data = [
                 'order_id' => $order->id,
@@ -55,9 +56,13 @@ class PublicOrdersController extends Controller
                 'quantity' => $cantidad[$key],
                 'price' => $precio[$key],
             ];
+            $total = $total + ($cantidad[$key]*$precio[$key]);
             $row = new OrderRows($order_row_data);
             $row->save();
         }
+
+        $order['total'] = $total;
+        $order->save();
 
         return redirect()->route('clients.order.index')
             ->with('success', 'Orden creada correctamente');

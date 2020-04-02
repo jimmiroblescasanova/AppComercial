@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Eloquent;
 use Illuminate\Database\Eloquent\Model;
 
 class Orders extends Model
@@ -12,4 +13,10 @@ class Orders extends Model
     protected $dates = [
         'date',
     ];
+
+    public function cliente()
+    {
+        return $this->belongsTo('App\User', 'user_id');
+    }
+
 }

@@ -1,5 +1,6 @@
 // Fonts
-//@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700');
 
 // Variables
 //@import 'variables';
@@ -7,10 +8,23 @@
 // Bootstrap
 //@import '~bootstrap/scss/bootstrap';
 
+//AdminLTE
+@import '~admin-lte/build/scss/AdminLTE';
+
 @include media-breakpoint-down(sm) {
   .btn-block-xs-only {
     display: block;
     margin-top: 5px;
     width: 100%;
   }
+}
+
+@media all and (max-width:768px) {
+    .calculator tr {
+        display: table;
+        width:100%;
+    }
+    .calculator td {
+        display: table-row;
+    }
 }

@@ -38,15 +38,6 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function makeBadge()
-    {
-        if ($this->attributes['active']) {
-            return '<span class="badge badge-success">Activo</span>';
-        } else {
-            return '<span class="badge badge-danger">Inactivo</span>';
-        }
-    }
-
     public function setPasswordAttribute($pass)
     {
         $this->attributes['password'] = Hash::make($pass);

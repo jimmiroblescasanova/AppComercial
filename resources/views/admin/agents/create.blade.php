@@ -40,7 +40,9 @@
                     {!! $errors->first('id_comercial', '<span class="text-muted">:message</span>') !!}
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-sm btn-success btn-block"><i class="fas fa-check-circle"></i> Guardar</button>
+                    <button type="submit" class="btn btn-sm btn-success btn-block"><i class="fas fa-check-circle"></i>
+                        Guardar
+                    </button>
                     <a href="{{ route('admin.agents.index') }}" class="btn btn-link btn-block">Cancelar</a>
                 </div>
             </form>
@@ -49,10 +51,7 @@
 @stop
 
 @section('scripts')
-    <!-- Select2 -->
-    <script src="{{ asset('/admin-lte/plugins/select2/js/select2.full.min.js') }}"></script>
     <script>
-        //Initialize Select2 Elements
         $('.select2').select2({
             theme: 'bootstrap4',
         });

@@ -103,15 +103,11 @@
 @endsection
 
 @section('scripts')
-    <!-- Select2 -->
-    <script src="{{ asset('/admin-lte/plugins/select2/js/select2.full.min.js') }}"></script>
-
     @if(session()->has('success'))
         @include('partials.alerts.toast-success')
     @endif
 
     <script>
-        //Initialize Select2 Elements
         $('.select2').select2({
             theme: 'bootstrap4',
         });
