@@ -33,7 +33,7 @@
                                         <span class="badge badge-danger">Sin asignar</span>
                                     @endif
                                 </td>
-                                <td>{!! $user->makeBadge() !!}</td>
+                                <td>{!! makeBadgeStatus($user->active) !!}</td>
                                 <td>
                                     <div class="dropdown">
                                         <button class="btn btn-xs btn-info dropdown-toggle" type="button"
@@ -107,35 +107,18 @@
         @include('partials.alerts.toast-success')
     @endif
 
+    @include('partials.dataTables')
+
     <script>
         $('.select2').select2({
             theme: 'bootstrap4',
         });
 
-        $('#dataTable').DataTable({
-            language: {
-                url: "//cdn.datatables.net/plug-ins/1.10.20/i18n/Spanish.json"
-            },
-            responsive: {
-                details: {
-                    type: 'column'
-                }
-            },
-            columnDefs: [{
-                className: 'control',
-                orderable: false,
-                targets:   0
-            }],
-            order: [ 1, 'asc' ],
-        });
-
         $('#modal-default').on('show.bs.modal', function (event) {
-            var button = $(event.relatedTarget); // Button that triggered the modal
-            var cliente = button.data('cliente'); // Extract info from data-* attributes
-            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-            var modal = $(this);
-            // modal.find('.modal-title').text('New message to ' + recipient)
+            const button = $(event.relatedTarget);
+            const cliente = button.data('cliente');
+            const modal = $(this);
+
             modal.find('input[name="user"]').val(cliente);
         });
     </script>

@@ -70,16 +70,18 @@
 @section('scripts')
     <script src="{{ asset('/admin-lte/plugins/select2/js/select2.full.min.js') }}"></script>
     <script>
+        // Declarar la constante de la alerta
         const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',
             showConfirmButton: false,
             timer: 3000,
         });
+        // Se declara el select
         $('.select2').select2({
             theme: 'bootstrap4',
         });
-
+        // Función para buscar el precio y la unidad vía Ajax
         $(document).on('change', '#producto', function(){
             const id = $('#producto option:selected').val();
             console.log(id);
@@ -104,7 +106,7 @@
                 },
             });
         });
-
+        // Función para calcular el total
         $(document).on('click', '#calculateTotal', function() {
             const grandTotal = $('#grandTotal');
             const allInputs = $('input[name^="cantidad"]');
@@ -128,7 +130,7 @@
             // console.log(cuenta);
             grandTotal.text(cuenta.toFixed(2));
         });
-
+        // Función para agregar el producto a la tabla
         $(document).on('click', '#agregarProducto', function () {
             const row = $('#tableContent');
 
@@ -142,11 +144,11 @@
 
             row.append(html);
         });
-
+        // Borrar fila de tabla
         $(document).on('click', '.btnDelete', function () {
             $(this).closest('tr').remove();
         });
-
+        // Finalizar la orden
         $('#sendForm').on('click', function (e) {
             e.preventDefault();
 
@@ -157,7 +159,7 @@
                 $('#order').submit();
             }
         });
-
+        // Función para validar el input
         $(document).on('keydown', function () {
             $(".currencyTextBox").inputFilter(function(value) {
                 return /^-?\d*[.,]?\d{0,2}$/.test(value);

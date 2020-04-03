@@ -33,7 +33,7 @@ function makeBadgeOrders($status)
     }
 }
 
-function makeBadgeStatus($active)
+function makeBadgeStatus(bool $active)
 {
     if ($active) {
         return '<span class="badge badge-success">Activo</span>';

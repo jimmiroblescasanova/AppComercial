@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\User;
-use App\Agents;
+use App\admAgentes;
 use App\Mail\UserActivated;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
+use Mail;
 
 class UsersController extends Controller
 {
@@ -19,7 +19,7 @@ class UsersController extends Controller
     {
         return view('admin.clientes.index', [
             'users' => User::all(),
-            'agents' => Agents::pluck('name', 'agent_id'),
+            'agents' => admAgentes::pluck('CNOMBREAGENTE', 'CIDAGENTE'),
         ]);
     }
 

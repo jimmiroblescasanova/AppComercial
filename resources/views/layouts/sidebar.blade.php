@@ -42,9 +42,9 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{ route('admin.orders.index') }}" class="nav-link {{ setActive('admin.orders.index') }}">
+                                <a href="{{ route('admin.orders.index') }}" class="nav-link {{ setActive('admin.orders.*') }}">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Listar</p>
+                                    <p>Pedidos de mis clientes</p>
                                 </a>
                             </li>
                         </ul>

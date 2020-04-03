@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-
 Route::post('/ajax/get-price/', 'PublicOrdersController@searchPrice')->name('ajax.price');
+Route::post('/ajax/update-total/', 'AdminOrdersController@update_total')->name('ajax.updateTotal');
+Route::post('/ajax/change-order-price/', 'AdminOrdersController@change_price')->name('ajax.changePrice');
 
 // Login para usuarios normales
 Route::namespace('Auth')->group(function () {
@@ -52,6 +52,10 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::prefix('pedidos')->group(function () {
         Route::get('/', 'AdminOrdersController@index')->name('orders.index');
         Route::get('/{id}/ver', 'AdminOrdersController@show')->name('orders.show');
+        Route::get('/{id}/atender', 'AdminOrdersController@atenderOrden')->name('orders.atender');
+        Route::get('/{id}/completar', 'AdminOrdersController@completarOrden')->name('orders.completar');
+        Route::get('/{id}/cancelar', 'AdminOrdersController@cancelarOrden')->name('orders.cancelar');
+
     });
 
     Route::prefix('agentes')->group(function () {

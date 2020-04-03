@@ -7,17 +7,20 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class UserActivated extends Mailable
+class OrderAttended extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $subject = 'Tu usuario ha sido activado';
+    public $order;
 
-    public $usuario;
-
-    public function __construct($usuario)
+    /**
+     * Create a new message instance.
+     *
+     * @param $order
+     */
+    public function __construct($order)
     {
-        $this->usuario = $usuario;
+        $this->order = $order;
     }
 
     /**
@@ -27,6 +30,7 @@ class UserActivated extends Mailable
      */
     public function build()
     {
-        return $this->markdown('mails.usuario-activado');
+        return $this->subject('Pedido: '. $this->order->id .' ha sido atendido')
+            ->markdown('mails.OrderAttended');
     }
 }

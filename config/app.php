@@ -165,6 +165,7 @@ return [
         /*
          * Package Service Providers...
          */
+//        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
 

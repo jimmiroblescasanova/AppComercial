@@ -15,8 +15,8 @@
                 @csrf
                 <div class="input-group mb-3">
                     <label for="email" class="sr-only">Correo electrónico</label>
-                    <input type="email" id="email" class="form-control" name="email" placeholder="Correo"
-                           value="{{ old('email', 'jimmirobles@hotmail.com') }}" autofocus>
+                    <input type="email" id="email" class="form-control" name="email" placeholder="Correo electrónico"
+                           value="{{ old('email') }}" autofocus>
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-envelope"></span>
@@ -26,8 +26,7 @@
                 </div>
                 <div class="input-group mb-3">
                     <label for="password" class="sr-only">Contraseña:</label>
-                    <input type="password" class="form-control" id="password" name="password" placeholder="Password"
-                           value="password">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-lock"></span>

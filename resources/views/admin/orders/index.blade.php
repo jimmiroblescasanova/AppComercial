@@ -17,6 +17,7 @@
                     <th>id</th>
                     <th>fecha</th>
                     <th>cliente</th>
+                    <th>total</th>
                     <th>estado</th>
                     <th>opciones</th>
                 </tr>
@@ -26,20 +27,15 @@
                     <tr>
                         <td></td>
                         <td>{{ $order->id }}</td>
-                        <td>{{ $order->date }}</td>
+                        <td>{{ $order->date->format('Y-m-d') }}</td>
                         <td>{{ $order->cliente->name }}</td>
+                        <td class="text-right">$ {{ convertir_a_numero($order->total) }}</td>
                         <td class="text-center">{!! makeBadgeOrders($order->status) !!}</td>
                         <td class="text-right">
-                            <div class="dropdown">
-                                <button class="btn btn-xs btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Opciones
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="{{ route('admin.orders.show', $order) }}"><i class="fas fa-eye"></i> Ver</a>
-                                    <a class="dropdown-item" href="#"><i class="fas fa-pencil-alt"></i> Modificar</a>
-                                    <a class="dropdown-item" href="#"><i class="fas fa-ban"></i> Cancelar</a>
-                                </div>
-                            </div>
+                            <a class="btn btn-xs btn-primary" href="{{ route('admin.orders.show', $order) }}"><i class="fas fa-eye"></i> Ver</a>
+                            @if ($order->status === 1)
+                                <a class="btn btn-xs btn-danger" href="{{ route('admin.orders.cancelar', $order) }}"><i class="fas fa-ban"></i> Cancelar</a>
+                            @endif
                         </td>
                     </tr>
                 @endforeach
@@ -50,5 +46,8 @@
 @stop
 
 @section('scripts')
+    @if (session()->has('success'))
+        @include('partials.alerts.toast-success')
+    @endif
     @include('partials.dataTables')
 @stop
