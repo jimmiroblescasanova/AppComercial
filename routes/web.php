@@ -22,6 +22,9 @@ Route::prefix('clientes')->name('clients.')->group(function () {
     Route::get('/pedidos', 'PublicOrdersController@index')->name('order.index');
     Route::get('/pedidos/crear', 'PublicOrdersController@create')->name('order.create');
     Route::post('/pedidos/crear', 'PublicOrdersController@store')->name('order.store');
+
+    Route::get('/contacto', 'ContactController@create')->name('contact.create');
+    Route::post('/contacto', 'ContactController@send')->name('contact.send');
 });
 
 // Rutas establecidas para el panel de admin

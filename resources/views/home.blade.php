@@ -11,4 +11,10 @@
             </div>
         </div>
     </div>
-@endsection
+@stop
+
+@section('scripts')
+    @if(session()->has('success'))
+        @include('partials.alerts.toast-success')
+    @endif
+@stop
