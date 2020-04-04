@@ -14,12 +14,12 @@
                 @csrf
                 <div class="form-group">
                     <label for="subject">Asunto:</label>
-                    <input type="text" name="subject" id="subject" class="form-control" placeholder="Asunto del mensaje" value="este es un mensaje de prueba">
+                    <input type="text" name="subject" id="subject" class="form-control" placeholder="Asunto del mensaje">
                     {!! $errors->first('subject', '<span class="text-muted">:message</span>') !!}
                 </div>
                 <div class="form-group">
                     <label for="message">Mensaje:</label>
-                    <textarea class="form-control" name="message" id="message" rows="3" placeholder="Escribe tu mensaje">probando un mensaje de contacto</textarea>
+                    <textarea class="form-control" name="message" id="message" rows="3" placeholder="Escribe tu mensaje"></textarea>
                     {!! $errors->first('message', '<span class="text-muted">:message</span>') !!}
                 </div>
                 <button type="submit" class="btn btn-primary btn-block">Enviar mensaje</button>
