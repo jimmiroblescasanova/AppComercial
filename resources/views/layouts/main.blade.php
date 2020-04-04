@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="{{ asset('/vendor/adminlte/plugins/select2/css/select2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/vendor/adminlte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
     <!-- overlayScrollbars -->
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
     {{--    <link rel="stylesheet" href="{{ asset('/admin-lte/dist/css/adminlte.min.css') }}">--}}
     <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
 </head>

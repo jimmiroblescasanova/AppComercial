@@ -35,7 +35,6 @@ class UsersController extends Controller
 
         $usuario->save();
 
-        //        toast('Success Toast','success')->autoClose(5000);
         return redirect()->back()
             ->with('success', 'Cliente actualizado correctamente');
     }

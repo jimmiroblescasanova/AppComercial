@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Agents;
 use App\admAgentes;
+use App\Http\Requests\CreateAgentRequest;
 use Illuminate\Http\Request;
 
 class AdminAgentsController extends Controller
@@ -12,7 +13,7 @@ class AdminAgentsController extends Controller
     public function index()
     {
         return view('admin.agents.index', [
-            'agents' => Agents::all(),
+            'agents' => Agents::orderBy('name')->get(),
         ]);
     }
 
@@ -23,16 +24,10 @@ class AdminAgentsController extends Controller
         ]);
     }
 
-    public function store(Request $request)
+    public function store(CreateAgentRequest $request)
     {
-        $data = $this->validate($request, [
-            'name' => 'required|string|min:5',
-            'email' => 'required|email|unique:agents,email',
-            'password' => 'required|string|min:6|confirmed',
-            'agent_id' => 'unique:Agents,agent_id',
-        ]);
 
-        $agent = new Agents($data);
+        $agent = new Agents($request->all());
         $agent->save();
 
         return redirect()->route('admin.agents.index')

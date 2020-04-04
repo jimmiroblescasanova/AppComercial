@@ -13,19 +13,7 @@
                     <!-- Date dd/mm/yyyy -->
                         <div class="form-group">
                             <label for="fecha">Fecha de corte:</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
-                                </div>
-                                <input type="date"
-                                       class="form-control"
-                                       id="fecha"
-                                       name="fecha"
-                                       data-inputmask-alias="datetime"
-                                       data-inputmask-inputformat="dd-mm-yyyy"
-                                       data-mask>
-                            </div>
-                            <!-- /.input group -->
+                            <input type="date" class="form-control" id="fecha" name="fecha">
                         </div>
                         <!-- /.form group -->
                         <div class="form-group">
@@ -49,13 +37,21 @@
 @stop
 
 @section('scripts')
-    <!-- InputMask -->
-    <script src="{{ asset('/vendor/adminlte/plugins/inputmask/min/jquery.inputmask.bundle.min.js') }}"></script>
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+    <script src="https://unpkg.com/gijgo@1.9.13/js/messages/messages.es-es.js" type="text/javascript"></script>
     <script>
         $('.select2').select2({
             theme: 'bootstrap4',
         });
 
-        $('[data-mask]').inputmask();
+        let today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
+        $('#fecha').datepicker({
+            locale: 'es-es',
+            format: 'yyyy-mm-dd',
+            uiLibrary: 'bootstrap4',
+            iconsLibrary: 'fontawesome',
+            // minDate: today,
+            maxDate: today,
+        });
     </script>
 @stop

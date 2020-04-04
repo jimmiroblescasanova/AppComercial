@@ -33,21 +33,11 @@
                             <p>Inicio</p>
                         </a>
                     </li>
-                    <li class="nav-item has-treeview {{ showMenu('admin.orders.*') }}">
-                        <a href="#" class="nav-link {{ setActive('admin.orders.*')  }}">
+                    <li class="nav-item">
+                        <a href="{{ route('admin.orders.index') }}" class="nav-link {{ setActive('admin.orders.*')  }}">
                             <i class="nav-icon fas fa-copy"></i>
-                            <p>Pedidos
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
+                            <p>Pedidos</p>
                         </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{ route('admin.orders.index') }}" class="nav-link {{ setActive('admin.orders.*') }}">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Pedidos de mis clientes</p>
-                                </a>
-                            </li>
-                        </ul>
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('admin.users') }}" class="nav-link {{ setActive('admin.users') }}">
@@ -56,7 +46,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('admin.agents.index') }}" class="nav-link {{ setActive('admin.agents.index') }}">
+                        <a href="{{ route('admin.agents.index') }}" class="nav-link {{ setActive('admin.agents.*') }}">
                             <i class="nav-icon fas fa-users-cog"></i>
                             <p>Agentes</p>
                         </a>

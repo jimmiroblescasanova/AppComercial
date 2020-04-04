@@ -10,7 +10,7 @@
             Se muestran los pedidos de mis clientes
         </div>
         <div class="card-body">
-            <table class="table table-striped dt-responsive" id="dataTable" style="width: 100%;">
+            <table class="table table-striped dt-responsive" id="dataTable" data-order='[[ 1, "desc" ]]' style="width: 100%;">
                 <thead>
                 <tr>
                     <th></th>

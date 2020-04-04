@@ -7,7 +7,7 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-12">
-                    <table class="table dt-responsive display" id="dataTable" style="width:100%;">
+                    <table class="table dt-responsive display" id="dataTable" data-order='[[ 1, "asc" ]]' style="width:100%;">
                         <thead>
                         <tr>
                             <th></th>

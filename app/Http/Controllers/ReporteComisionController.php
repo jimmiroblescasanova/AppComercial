@@ -34,7 +34,7 @@ class ReporteComisionController extends Controller
             ->whereBetween('CFECHA', [$request->fecha_inicial, $request->fecha_final])
             ->get();
 
-        return view('reportes.comisiones.reporte', [
+        return view('admin.reportes.comisiones.reporte', [
             'agente' => admAgentes::firstWhere('CIDAGENTE', $request->id_agente),
             'total_general' => $documentos->sum('CTOTAL'),
             'documentos' => $documentos,

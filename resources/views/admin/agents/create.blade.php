@@ -37,7 +37,7 @@
                             <option value="">Sin agentes</option>
                         @endforelse
                     </select>
-                    {!! $errors->first('id_comercial', '<span class="text-muted">:message</span>') !!}
+                    {!! $errors->first('agent_id', '<span class="text-muted">:message</span>') !!}
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-sm btn-success btn-block"><i class="fas fa-check-circle"></i>

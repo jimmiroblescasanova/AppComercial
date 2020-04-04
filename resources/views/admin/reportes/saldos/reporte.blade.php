@@ -2,14 +2,16 @@
 
 @section('content')
     <div class="card">
+        <div class="card-header border-0">
+            <div class="d-flex justify-content-between">
+                <h3 class="card-title">Reporte concentrado por cliente</h3>
+                <a class="btn btn-xs btn-success btn-block-xs-only"
+                   href="{{ route('admin.saldos.export', [$data["agente"], $data["fecha"]]) }}"
+                ><i class="fas fa-download"></i> Exportar XLS</a>
+            </div>
+        </div>
         <div class="card-body">
-            <div class="row justify-content-between">
-                <div class="col-12 col-md-4 mb-3">
-                    <p class="h3">Reporte concentrado por cliente</p>
-                    <a class="btn btn-sm btn-success btn-block-xs-only"
-                       href="{{ route('admin.saldos.export', [$data["agente"], $data["fecha"]]) }}"
-                    ><i class="fas fa-file-excel"></i> Exportar XLS</a>
-                </div>
+            <div class="row justify-content-end">
                 <div class="col-12 col-md-4">
                     <table class="table table-sm">
                         <thead class="thead-dark">
@@ -34,11 +36,11 @@
                 <thead>
                 <tr>
                     <th></th>
-                    <th>codigo</th>
+                    <th>código</th>
                     <th>cliente</th>
                     <th>saldo total</th>
-                    <th>comision perdida</th>
-                    <th>accion</th>
+                    <th>comisión perdida</th>
+                    <th class="text-center">opciones</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -47,38 +49,23 @@
                         <td></td>
                         <td>{{ $documento->cliente->CCODIGOCLIENTE }}</td>
                         <td>{{ $documento->CRAZONSOCIAL }}</td>
-                        <td class="text-right">{{ convertir_a_numero($documento->saldo_total/1.16) }}</td>
-                        <td class="text-right">{{ convertir_a_numero( ($documento->saldo_total/1.16) *0.02) }}</td>
+                        <td class="text-right">$ {{ convertir_a_numero($documento->saldo_total/1.16) }}</td>
+                        <td class="text-right">$ {{ convertir_a_numero( ($documento->saldo_total/1.16) *0.02) }}</td>
                         <td class="text-right"><a
                                 href="{{ route('admin.documentos.ver', $documento->CIDCLIENTEPROVEEDOR) }}"
-                                class="btn btn-primary btn-sm">Ver doctos</a></td>
+                                class="btn btn-primary btn-xs">Ver doctos</a></td>
                     </tr>
                 @endforeach
                 </tbody>
             </table>
         </div>
+        <div class="card-footer">
+            <button class="btn btn-secondary btn-sm float-right" onclick="history.back();return false;"><i
+                    class="fas fa-hand-point-left"></i> Atrás</button>
+        </div>
     </div>
 @endsection
 
 @section('scripts')
-    <script>
-        $(document).ready(function () {
-            $('#dataTable').DataTable({
-                language: {
-                    url: "//cdn.datatables.net/plug-ins/1.10.20/i18n/Spanish.json"
-                },
-                responsive: {
-                    details: {
-                        type: 'column'
-                    }
-                },
-                columnDefs: [{
-                    className: 'control',
-                    orderable: false,
-                    targets: 0
-                }],
-                order: [1, 'asc'],
-            });
-        });
-    </script>
+    @include('partials.dataTables')
 @endsection

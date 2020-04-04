@@ -16,8 +16,8 @@
             <table class="table table-striped table-sm">
                 <thead>
                 <tr>
-                    <th>agente comercial</th>
                     <th>nombre</th>
+                    <th>agente comercial</th>
                     <th>email</th>
                     <th>&nbsp;</th>
                 </tr>
@@ -25,8 +25,8 @@
                 <tbody>
                 @forelse ($agents as $agent)
                     <tr>
-                        <td>{{ $agent->agente->CNOMBREAGENTE }}</td>
                         <td>{{ $agent->name }}</td>
+                        <td>{{ $agent->agente->CNOMBREAGENTE }}</td>
                         <td>{{ $agent->email }}</td>
                         <td class="text-right">
                             <button class="btn btn-xs btn-secondary">Modificar</button>

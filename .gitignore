@@ -2,3 +2,4 @@
 /vendor/
 /public/
 .env
+_ide_helper.php

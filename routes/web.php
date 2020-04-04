@@ -45,8 +45,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::post('/saldos', 'ReporteSaldosController@reporte')->name('reportes.saldos.reporte');
         Route::get('/saldos/export/{agente}/{fecha}', 'ReporteSaldosController@export')->name('saldos.export');
 
-        Route::get('/documentos/{id}', 'DocumentosController@ver')->name('documentos.ver');
-        Route::get('/documentos/export/{id}', 'DocumentosController@export')->name('documentos.export');
+        Route::get('/documentos/{id}', 'ReporteDocumentosController@ver')->name('documentos.ver');
+        Route::get('/documentos/export/{id}', 'ReporteDocumentosController@export')->name('documentos.export');
     });
 
     Route::prefix('pedidos')->group(function () {

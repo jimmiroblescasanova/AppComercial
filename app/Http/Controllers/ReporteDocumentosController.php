@@ -6,7 +6,7 @@ use App\admDocumentos;
 use App\Exports\DocumentosExport;
 use Maatwebsite\Excel\Facades\Excel;
 
-class DocumentosController extends Controller
+class ReporteDocumentosController extends Controller
 {
     public function __construct()
     {
@@ -25,7 +25,7 @@ class DocumentosController extends Controller
                     ->orWhere('CIDDOCUMENTODE', 7);
             })->get();
 
-        return view('reportes.documentos.reporte', [
+        return view('admin.reportes.documentos.reporte', [
             'documentos' => $documentos,
             'id' => $id,
         ]);
@@ -33,6 +33,6 @@ class DocumentosController extends Controller
 
     public function export($id)
     {
-        return Excel::download(new DocumentosExport($id), 'saldos-' . NOW()->format('Y-m-d') . '.xlsx');
+        return Excel::download(new DocumentosExport($id), 'documentos-' . NOW()->format('Y-m-d') . '.xlsx');
     }
 }

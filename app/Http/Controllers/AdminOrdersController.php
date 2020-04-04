@@ -13,7 +13,7 @@ use Mail;
 
 class AdminOrdersController extends Controller
 {
-    //
+
     public function __construct()
     {
         $this->middleware('auth:admin');
@@ -21,8 +21,11 @@ class AdminOrdersController extends Controller
 
     public function index()
     {
-        $orders = Orders::where('agent_id', Auth::guard('admin')->user()->agent_id)
-            ->orderBy('id', 'DESC')->get();
+        if (Auth::guard('admin')->user()->agent_id != 0) {
+            $orders = Orders::where('agent_id', Auth::guard('admin')->user()->agent_id)->get();
+        } else {
+            $orders = Orders::all();
+        }
 
         return view('admin.orders.index', [
             'orders' => $orders,
@@ -57,9 +60,8 @@ class AdminOrdersController extends Controller
             $orden = Orders::find($request->id);
             $orderRows = OrderRows::where('order_id', $request->id)->get();
 
-            for ($i = 0; $i < count($orderRows); $i++)
-            {
-                $total = $total + ($orderRows[$i]->price*$orderRows[$i]->quantity);
+            for ($i = 0; $i < count($orderRows); $i++) {
+                $total = $total + ($orderRows[$i]->price * $orderRows[$i]->quantity);
             }
 
             $orden['total'] = $total;
