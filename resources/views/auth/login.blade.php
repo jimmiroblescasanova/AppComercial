@@ -54,7 +54,7 @@
             <!-- /.social-auth-links -->
 
             <p class="mb-1">
-                <a href="#">Olvidé mi contraseña</a>
+                <a href="{{ route('password.forgot') }}">Olvidé mi contraseña</a>
             </p>
         </div>
         <!-- /.login-card-body -->

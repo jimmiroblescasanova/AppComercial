@@ -12,6 +12,11 @@ Route::namespace('Auth')->group(function () {
 
     Route::get('/registro', 'RegisterController@create')->name('register');
     Route::post('/registro', 'RegisterController@store')->name('register.store');
+
+    Route::get('/forgot-password', 'ForgotPasswordController@forgot')->name('password.forgot');
+    Route::post('/forgot-password', 'ForgotPasswordController@validateEmail')->name('password.validate-email');
+    Route::get('/reset-password/{token}', 'ResetPasswordController@reset')->name('password.reset');
+    Route::post('/reset-password/{token}', 'ResetPasswordController@newPassword')->name('password.new-password');
 });
 
 // Panel de clientes

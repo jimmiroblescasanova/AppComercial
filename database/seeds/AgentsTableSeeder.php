@@ -14,10 +14,12 @@ class AgentsTableSeeder extends Seeder
     public function run()
     {
         DB::table('agents')->insert([
-            'name' => 'Administrador',
-            'email' => 'jimmirobles@hotmail.com',
-            'password' => Hash::make('password'),
-            'superAdmin' => true,
+            'name'          => 'Administrador',
+            'email'         => 'jimmirobles@hotmail.com',
+            'password'      => Hash::make('password'),
+            'agent_id'      => 0,
+            'superAdmin'    => true,
+            'created_at'    => \Carbon\Carbon::now(),
         ]);
     }
 }
