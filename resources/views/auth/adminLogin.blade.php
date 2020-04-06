@@ -34,7 +34,7 @@
                     </div>
                     {!! $errors->first('password', '<span class="text-muted">:message</span>') !!}
                 </div>
-                <div class="input-group mb-3">
+                {{--<div class="input-group mb-3">
                     <label for="code" class="sr-only">Clave del mes</label>
                     <input type="number" class="form-control" name="" id="code" placeholder="Clave del mes">
                     <div class="input-group-append">
@@ -42,7 +42,7 @@
                             <span class="fas fa-key"></span>
                         </div>
                     </div>
-                </div>
+                </div>--}}
                 <div class="row">
                     <div class="col-12">
                         <button type="submit" class="btn btn-primary btn-block">Ingresar</button>

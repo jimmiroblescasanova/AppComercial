@@ -16,10 +16,11 @@
             <table class="table table-striped table-sm">
                 <thead>
                 <tr>
-                    <th>nombre</th>
-                    <th>agente comercial</th>
-                    <th>email</th>
-                    <th>&nbsp;</th>
+                    <th>Nombre</th>
+                    <th>Agente Comercial</th>
+                    <th>Email</th>
+                    <th>Estatus</th>
+                    <th>Opciones</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -28,9 +29,16 @@
                         <td>{{ $agent->name }}</td>
                         <td>{{ $agent->agente->CNOMBREAGENTE }}</td>
                         <td>{{ $agent->email }}</td>
+                        <td>{!! makeBadgeStatus($agent->active) !!}</td>
                         <td class="text-right">
-                            <button class="btn btn-xs btn-secondary">Modificar</button>
-                            <button class="btn btn-xs btn-danger">Suspender</button>
+                            <a href="{{ route('admin.agents.edit', $agent) }}" class="btn btn-xs btn-secondary"><i class="fas fa-pencil-alt"></i> Modificar</a>
+                            @if ($agent->active)
+                                <a href="{{ route('admin.agents.updateStatus', $agent) }}"
+                                   class="btn btn-xs btn-danger"><i class="fas fa-lock"></i> Suspender</a>
+                            @else
+                                <a href="{{ route('admin.agents.updateStatus', $agent) }}"
+                                   class="btn btn-xs btn-primary"><i class="fas fa-lock-open"></i> Activar</a>
+                            @endif
                         </td>
                     </tr>
                 @empty

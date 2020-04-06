@@ -64,7 +64,10 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::prefix('agentes')->group(function () {
         Route::get('/', 'AdminAgentsController@index')->name('agents.index');
         Route::get('/create', 'AdminAgentsController@create')->name('agents.create');
+        Route::get('/{id}/editar', 'AdminAgentsController@edit')->name('agents.edit');
+        Route::patch('/{id}/actualizar', 'AdminAgentsController@update')->name('agents.update');
         Route::post('/create', 'AdminAgentsController@store')->name('agents.store');
+        Route::get('/suspender/{id}', 'AdminAgentsController@updateStatus')->name('agents.updateStatus');
     });
 
     Route::prefix('clientes')->group(function () {

@@ -22,8 +22,6 @@ class UserRegistered extends Mailable
 
     public function build()
     {
-        return $this->markdown('mails.usuario-registrado', [
-            'cliente' => $this->cliente,
-        ]);
+        return $this->markdown('mails.UserRegistered');
     }
 }
