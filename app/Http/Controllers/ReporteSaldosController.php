@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use DB;
+use Excel;
 use App\admAgentes;
 use App\admDocumentos;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\CarteraVencidaExport;
 
 class ReporteSaldosController extends Controller

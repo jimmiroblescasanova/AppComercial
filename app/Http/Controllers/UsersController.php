@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Mail;
 use App\User;
 use App\admAgentes;
 use App\Mail\UserActivated;
 use Illuminate\Http\Request;
-use Mail;
 
 class UsersController extends Controller
 {

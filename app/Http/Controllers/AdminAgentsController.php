@@ -4,13 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Agents;
 use App\admAgentes;
+use Illuminate\Http\Request;
 use App\Http\Requests\CreateAgentRequest;
 use App\Http\Requests\UpdateAgentRequest;
-use Illuminate\Http\Request;
 
 class AdminAgentsController extends Controller
 {
-    //
     public function __construct()
     {
         $this->middleware('auth:admin');

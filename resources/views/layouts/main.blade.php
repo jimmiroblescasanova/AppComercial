@@ -10,8 +10,6 @@
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ asset('/vendor/adminlte/plugins/fontawesome-free/css/all.min.css') }}">
-    <!-- Ionicons -->
-{{--    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">--}}
     <!-- SweetAlert2 -->
     <link rel="stylesheet" href="{{ asset('/vendor/adminlte/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css') }}">
     <!-- DataTables CSS -->
@@ -22,7 +20,6 @@
     <link rel="stylesheet" href="{{ asset('/vendor/adminlte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
     <!-- overlayScrollbars -->
     <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
-    {{--    <link rel="stylesheet" href="{{ asset('/admin-lte/dist/css/adminlte.min.css') }}">--}}
     <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed">

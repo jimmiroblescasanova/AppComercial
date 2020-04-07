@@ -21,7 +21,6 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Orders query()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Orders whereAgentId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Orders whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Orders whereDate($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Orders whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Orders whereStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Orders whereTotal($value)

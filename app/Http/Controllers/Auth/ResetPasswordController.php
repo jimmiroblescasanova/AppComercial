@@ -32,7 +32,7 @@ class ResetPasswordController extends Controller
 
         $user = User::where('email', $tokenData->email)->first();
 
-        $user->password = Hash::make($password);
+        $user->password = $password;
         $user->update();
 
         DB::table('password_resets')->where('email', $user->email)->delete();

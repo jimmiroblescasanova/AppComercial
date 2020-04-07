@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Excel;
 use App\admDocumentos;
 use App\Exports\DocumentosExport;
-use Maatwebsite\Excel\Facades\Excel;
 
 class ReporteDocumentosController extends Controller
 {

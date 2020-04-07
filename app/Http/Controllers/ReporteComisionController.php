@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Excel;
 use App\admAgentes;
 use App\admDocumentos;
 use Illuminate\Http\Request;
 use App\Exports\ComisionesExport;
-use Maatwebsite\Excel\Facades\Excel;
 
 class ReporteComisionController extends Controller
 {

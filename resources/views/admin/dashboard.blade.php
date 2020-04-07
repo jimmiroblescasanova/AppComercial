@@ -1,18 +1,80 @@
 @extends('layouts.main')
 
-@section('content-title', 'Inicio')
+@section('title', 'Inicio')
+
+@section('content-title', 'Página principal')
 
 @section('content')
     <!-- Default box -->
-    <div class="card">
-        <div class="card-body">
-            Bienvenido al admin site: {{ Auth::guard('admin')->user()->email }}
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body p-0">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Cliente</th>
+                            <th>Estado</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @forelse ($today_orders as $order)
+                            <tr>
+                                <td><a href="{{ route('admin.orders.show', $order) }}">{{ $order->id }}</a></td>
+                                <td>{{ $order->cliente->name }}</td>
+                                <td>{!! makeBadgeOrders($order->status) !!}</td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="3">No hay registros</td>
+                            </tr>
+                        @endforelse
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.card-body -->
+                <!-- /.card-footer-->
+            </div>
         </div>
-        <!-- /.card-body -->
-        <div class="card-footer">
-            Footer
+        <div class="col-md-4">
+            <div class="small-box bg-info">
+                <div class="inner">
+                    <h3>{{ $ordenes_recibidas }}</h3>
+                    <p>Pedidos recibidos</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <a href="{{ route('admin.orders.index') }}" class="small-box-footer">
+                    Más información <i class="fas fa-arrow-circle-right"></i>
+                </a>
+            </div>
+            <div class="small-box bg-warning">
+                <div class="inner">
+                    <h3>{{ $ordenes_atendidas }}</h3>
+                    <p>Pedidos atendidos</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-check"></i>
+                </div>
+                <a href="{{ route('admin.orders.index') }}" class="small-box-footer">
+                    Más información <i class="fas fa-arrow-circle-right"></i>
+                </a>
+            </div>
+            <div class="small-box bg-success">
+                <div class="inner">
+                    <h3>{{ $clientes }}</h3>
+                    <p>Clientes registrados</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <a href="{{ route('admin.users') }}" class="small-box-footer">
+                    Más información <i class="fas fa-arrow-circle-right"></i>
+                </a>
+            </div>
         </div>
-        <!-- /.card-footer-->
     </div>
     <!-- /.card -->
 @endsection

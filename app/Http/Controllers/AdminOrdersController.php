@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use Auth;
+use Mail;
 use App\Orders;
 use App\OrderRows;
 use App\Mail\OrderAttended;
 use App\Mail\OrderCancelled;
 use App\Mail\OrderCompleted;
 use Illuminate\Http\Request;
-use Mail;
 
 class AdminOrdersController extends Controller
 {

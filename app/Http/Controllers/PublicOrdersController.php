@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\Orders;
 use App\OrderRows;
 use App\admProductos;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class PublicOrdersController extends Controller
 {
@@ -66,6 +66,26 @@ class PublicOrdersController extends Controller
 
         return redirect()->route('clients.order.index')
             ->with('success', 'Orden creada correctamente');
+    }
+
+    public function show($id)
+    {
+        $order = Orders::findOrFail($id);
+        $orderRows = OrderRows::where('order_id', $id)->get();
+
+        return view('public.orders.show', [
+            'order' => $order,
+            'orderRows' => $orderRows,
+        ]);
+    }
+
+    public function cancel($id)
+    {
+        $order = Orders::findOrFail($id);
+        $order->status = 0;
+        $order->save();
+
+        return redirect()->back()->with('success', 'Orden cancelada');
     }
 
     public function searchPrice(Request $request)
