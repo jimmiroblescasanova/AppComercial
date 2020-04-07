@@ -59,6 +59,25 @@ class AdminAgentsController extends Controller
             ->with('success', 'Agente actualizado correctamente.');
     }
 
+    public function password($id)
+    {
+        return view('admin.agents.password', compact('id'));
+    }
+
+    public function change_password(Request $request, $id)
+    {
+        $validData = $request->validate([
+            'password' => 'required|string|min:6|confirmed',
+        ]);
+
+        $agente = Agents::findOrFail($id);
+        $agente->password = \Hash::make($validData['password']);
+        $agente->update();
+
+        return redirect()->route('admin.agents.index')
+            ->with('success', 'Contraseña cambiada correctamente');
+    }
+
     public function updateStatus($id)
     {
         $agente = Agents::find($id);

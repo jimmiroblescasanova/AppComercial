@@ -12,7 +12,7 @@
                         class="fas fa-pencil-alt"></i> Nuevo</a>
             </div>
         </div>
-        <div class="card-body p-0 table-responsive">
+        <div class="card-body p-0">
             <table class="table table-striped table-sm">
                 <thead>
                 <tr>
@@ -31,14 +31,26 @@
                         <td>{{ $agent->email }}</td>
                         <td>{!! makeBadgeStatus($agent->active) !!}</td>
                         <td class="text-right">
-                            <a href="{{ route('admin.agents.edit', $agent) }}" class="btn btn-xs btn-secondary"><i class="fas fa-pencil-alt"></i> Modificar</a>
-                            @if ($agent->active)
-                                <a href="{{ route('admin.agents.updateStatus', $agent) }}"
-                                   class="btn btn-xs btn-danger"><i class="fas fa-lock"></i> Suspender</a>
-                            @else
-                                <a href="{{ route('admin.agents.updateStatus', $agent) }}"
-                                   class="btn btn-xs btn-primary"><i class="fas fa-lock-open"></i> Activar</a>
-                            @endif
+                            <div class="dropdown">
+                                <button class="btn btn-xs btn-info dropdown-toggle" type="button"
+                                        id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">
+                                    Opciones
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a href="{{ route('admin.agents.edit', $agent) }}"
+                                       class="dropdown-item"><i class="fas fa-pencil-alt"></i> Modificar</a>
+                                    <a href="{{ route('admin.agents.password', $agent) }}"
+                                       class="dropdown-item"><i class="fas fa-key"></i> Cambiar contraseña</a>
+                                    @if ($agent->active)
+                                        <a href="{{ route('admin.agents.updateStatus', $agent) }}"
+                                           class="dropdown-item"><i class="fas fa-lock"></i> Suspender</a>
+                                    @else
+                                        <a href="{{ route('admin.agents.updateStatus', $agent) }}"
+                                           class="dropdown-item"><i class="fas fa-lock-open"></i> Activar</a>
+                                    @endif
+                                </div>
+                            </div>
                         </td>
                     </tr>
                 @empty

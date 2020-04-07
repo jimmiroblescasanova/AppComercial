@@ -71,6 +71,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/create', 'AdminAgentsController@create')->name('agents.create');
         Route::get('/{id}/editar', 'AdminAgentsController@edit')->name('agents.edit');
         Route::patch('/{id}/actualizar', 'AdminAgentsController@update')->name('agents.update');
+        Route::get('/{id}/password', 'AdminAgentsController@password')->name('agents.password');
+        Route::patch('/{id}/password', 'AdminAgentsController@change_password')->name('agents.change-password');
         Route::post('/create', 'AdminAgentsController@store')->name('agents.store');
         Route::get('/suspender/{id}', 'AdminAgentsController@updateStatus')->name('agents.updateStatus');
     });
