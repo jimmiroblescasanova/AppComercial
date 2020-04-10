@@ -44,6 +44,22 @@
                     </div>
                 </div>
 
+                {!! $errors->first('phone', '<span class="text-muted">:message</span>') !!}
+                <div class="input-group mb-3">
+                    <label for="phone" class="sr-only">Teléfono</label>
+                    <input type="number"
+                           name="phone"
+                           id="phone"
+                           class="form-control"
+                           placeholder="Teléfono"
+                           value="{{ old('phone') }}">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-phone"></span>
+                        </div>
+                    </div>
+                </div>
+
                 {!! $errors->first('email', '<span class="text-muted">:message</span>') !!}
                 <div class="input-group mb-3">
                     <label for="email" class="sr-only">Email</label>

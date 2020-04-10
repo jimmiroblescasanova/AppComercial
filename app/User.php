@@ -6,6 +6,7 @@ use Hash;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Str;
 
 /**
  * App\User
@@ -47,9 +48,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
-        'name', 'email', 'rfc', 'password', 'agent_id',
-    ];
+    protected $guarded = [];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -87,5 +86,10 @@ class User extends Authenticatable
     public function agente()
     {
         return $this->belongsTo('App\admAgentes', 'agent_id', 'CIDAGENTE');
+    }
+
+    public function shortName()
+    {
+        return Str::limit($this->attributes['name'], 13);
     }
 }

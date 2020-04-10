@@ -19,6 +19,7 @@ class CreateOrdersTable extends Migration
             $table->double('total');
             $table->bigInteger('user_id');
             $table->bigInteger('agent_id');
+            $table->boolean('invoice')->default(false);
             $table->integer('status')->default(1); // 1=Enviada, 2=Atendida, 3=Completada, 0=Cancelada
             $table->timestamps();
         });

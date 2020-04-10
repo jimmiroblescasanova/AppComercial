@@ -5,7 +5,7 @@
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-body">
-                    <p class="display-4">Inicio, {{ Auth::user()->email }}</p>
+                    <h2>Hola, {{ Auth::user()->name }}</h2>
                     <p>Mi agente de venta asignado: {{ Auth::user()->agente->CNOMBREAGENTE }}</p>
                 </div>
             </div>

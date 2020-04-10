@@ -16,7 +16,7 @@ class AdminOrdersController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth:admin');
+        $this->middleware('auth:admin')->except('print');
     }
 
     public function index()
@@ -110,5 +110,16 @@ class AdminOrdersController extends Controller
 
         return redirect()->route('admin.orders.index')
             ->with('success', 'La orden se ha cancelado.');
+    }
+
+    public function print($id)
+    {
+        $order = Orders::findOrFail($id);
+        $orderRows = OrderRows::where('order_id', $id)->get();
+
+        return view('layouts.print', [
+            'order' => $order,
+            'orderRows' => $orderRows,
+        ]);
     }
 }

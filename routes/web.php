@@ -65,6 +65,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/{id}/atender', 'AdminOrdersController@atenderOrden')->name('orders.atender');
         Route::get('/{id}/completar', 'AdminOrdersController@completarOrden')->name('orders.completar');
         Route::get('/{id}/cancelar', 'AdminOrdersController@cancelarOrden')->name('orders.cancelar');
+        Route::get('/{id}/print', 'AdminOrdersController@print')->name('orders.print');
 
     });
 
@@ -82,6 +83,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::prefix('clientes')->group(function () {
         Route::get('/', 'UsersController@index')->name('users');
         Route::post('/agentAssoc', 'UsersController@agentAssoc')->name('users.agent-assoc');
-        Route::get('/activate/{id}', 'UsersController@activate')->name('users.activate');
+        Route::get('/{id}/activate', 'UsersController@activate')->name('users.activate');
+        Route::post('/cambiar-lista-precios', 'UsersController@changePrice')->name('users.changePrice');
     });
 });

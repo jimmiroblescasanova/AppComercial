@@ -61,7 +61,8 @@
         <div class="float-right d-none d-sm-block">
             <b>Version</b> 2.0
         </div>
-        <strong>Copyright &copy; 2020 <a href="http://adminlte.io">Mercalub</a>.</strong> Todos los derechos reservados.
+        <strong>Copyright &copy; {{ NOW()->format('Y') }} <a href="{{ config('app.url') }}">Mercalub</a>.</strong> Todos los derechos reservados.
+        <small class="text-muted">by <a href="http://jimmirobles.tech" target="_blank">Jimmi Robles</a></small>
     </footer>
 </div>
 <!-- ./wrapper -->

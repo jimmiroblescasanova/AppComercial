@@ -54,6 +54,9 @@
                         <p class="text-sm">Fecha del pedido:
                             <b class="d-block">{{ $order->date->format('d-m-Y') }}</b>
                         </p>
+                        <p class="text-sm">Hora del pedido:
+                            <b class="d-block">{{ $order->date->format('h:i a') }}</b>
+                        </p>
                         <p class="text-sm">Nombre del cliente:
                             <b class="d-block">{{ $order->cliente->name }}</b>
                         </p>
@@ -63,8 +66,9 @@
                     </div>
                     <div class="text-center mt-5">
                         <a href="{{ route('admin.orders.index') }}" class="btn btn-sm btn-link"><i
-                                class="far fa-hand-point-left"></i> Atrás
-                        </a>
+                                class="far fa-hand-point-left"></i> Atrás</a>
+                        <a href="{{ route('admin.orders.print', $order->id) }}" class="btn btn-sm btn-default" target="_blank"><i
+                                class="far fa-print"></i> Imprimir</a>
                         @if ($order->status != 0)
                             @if ($order->status === 1)
                                 <a href="{{ route('admin.orders.atender', $order) }}" class="btn btn-sm btn-primary"><i

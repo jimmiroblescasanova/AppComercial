@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Http\Requests\CreateUserRequest;
 use App\User;
 use App\Mail\UserRegistered;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Mail;
+use Mail;
 
 class RegisterController extends Controller
 {
@@ -15,16 +16,9 @@ class RegisterController extends Controller
         return view('auth.register');
     }
 
-    public function store(Request $request)
+    public function store(CreateUserRequest $request)
     {
-        $validated = $request->validate([
-            'name' => 'required|string|min:6',
-            'rfc' => 'required|string|min:12|max:13|unique:users',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|confirmed|string|min:6',
-        ]);
-
-        $cliente = new User($validated);
+        $cliente = new User($request->validated());
         $cliente->save();
 
         Mail::to(env('MAIL_TO_ADMIN'))->send(new UserRegistered($cliente));

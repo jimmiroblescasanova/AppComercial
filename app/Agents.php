@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Str;
 
 /**
  * App\Agents
@@ -76,5 +77,10 @@ class Agents extends Authenticatable
     public function agente()
     {
         return $this->belongsTo('App\admAgentes', 'agent_id', 'CIDAGENTE');
+    }
+
+    public function shortName()
+    {
+        return Str::limit($this->attributes['name'], 13);
     }
 }

@@ -25,8 +25,13 @@ class PublicOrdersController extends Controller
 
     public function create()
     {
+        $productos = admProductos::where([
+            ['CSTATUSPRODUCTO', 1],
+            ['CTIPOPRODUCTO', 1],
+        ])->get();
+
         return view('public.orders.create', [
-            'productos' => admProductos::pluck('CNOMBREPRODUCTO', 'CIDPRODUCTO'),
+            'productos' => $productos,
         ]);
     }
 
@@ -90,11 +95,13 @@ class PublicOrdersController extends Controller
 
     public function searchPrice(Request $request)
     {
+        $lista = 'CPRECIO'.Auth::user()->price_list;
+
         if (request()->ajax()) {
             $producto = admProductos::firstWhere('CIDPRODUCTO', $request->id);
 
             return response()->json([
-                'precio' => $producto->CPRECIO1,
+                'precio' => $producto[$lista],
                 'unidad' => $producto->unidad->CNOMBREUNIDAD,
             ], 200);
         }

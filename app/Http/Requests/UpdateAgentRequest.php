@@ -25,14 +25,22 @@ class UpdateAgentRequest extends FormRequest
      */
     public function rules()
     {
-        return [
+        $rules = [
             'name' => 'required|string|min:5',
             'email' => [
                 'required',
                 'email',
                 Rule::unique('agents')->ignore($this->id),
             ],
-            'agent_id' => 'required',
         ];
+
+        if ($this->agent_id != 0)
+        {
+            $rules['agent_id'] = 'required|unique:agents,agent_id';
+        } else {
+            $rules['agent_id'] = 'required';
+        }
+
+        return $rules;
     }
 }

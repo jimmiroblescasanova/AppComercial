@@ -116,5 +116,45 @@
                 <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
             </div>
         </li>--}}
+        <li class="nav-item dropdown user-menu">
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                <img src="{{ asset('user-icon.png') }}" class="user-image img-circle elevation-2" alt="User Image">
+                <span class="d-none d-md-inline">{{ Auth::guard('admin')->check() ? Auth::guard('admin')->user()->shortName() : Auth::user()->shortName() }}</span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                <!-- User image -->
+                <li class="user-header bg-gradient-secondary">
+                    <img src="{{ asset('user-icon.png') }}" class="img-circle elevation-2" alt="User Image">
+
+                    <p>
+                        {{ Auth::guard('admin')->check() ? Auth::guard('admin')->user()->name : Auth::user()->name }}
+                        <small>{{ !Auth::guard('admin')->check() ? Auth::user()->rfc : '' }}</small>
+                    </p>
+                </li>
+                <!-- Menu Body -->
+                {{--<li class="user-body">
+                    <div class="row">
+                        <div class="col-4 text-center">
+                            <a href="#">Followers</a>
+                        </div>
+                        <div class="col-4 text-center">
+                            <a href="#">Sales</a>
+                        </div>
+                        <div class="col-4 text-center">
+                            <a href="#">Friends</a>
+                        </div>
+                    </div>
+                    <!-- /.row -->
+                </li>--}}
+                <!-- Menu Footer-->
+                <li class="user-footer">
+                    @if (!Auth::guard('admin')->check())
+                        <a href="#" class="btn btn-default btn-flat"><i class="fas fa-user"></i> Perfil</a>
+                    @endif
+                    <button type="button" id="logoutButton" class="btn btn-default btn-flat {{ (!Auth::guard('admin')->check()) ? 'float-right' : 'btn-block' }}"><i
+                            class="fas fa-door-open"></i> Desconectarse</button>
+                </li>
+            </ul>
+        </li>
     </ul>
 </nav>

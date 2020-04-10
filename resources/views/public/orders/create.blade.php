@@ -10,7 +10,7 @@
             <div class="row">
                 <div class="col-md-9">
                     <p>Este formato es para agilizar el proceso de pedido y cotización de clientes de Mercalub.</p>
-                    <p>Aqui van las condiciones...</p></div>
+                    <p>Todos los precios mostrados ya incluyen IVA</p></div>
                 <div class="col-md-3 text-center">
                     <p class="h4">TOTAL</p>
                     <span class="h2">$ </span><span class="h2" id="grandTotal">0.00</span>
@@ -20,8 +20,8 @@
                 <div class="form-group col-md-7">
                     <label for="producto" class="col-form-label">Seleccionar producto:</label>
                     <select id="producto" class="form-control select2">
-                        @foreach ($productos as $id => $producto)
-                            <option value="{{ $id }}">{{ $producto }}</option>
+                        @foreach ($productos as $producto)
+                            <option value="{{ $producto->CIDPRODUCTO }}">{{ $producto->CCODIGOPRODUCTO }} - {{ $producto->CNOMBREPRODUCTO }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -68,7 +68,6 @@
 @stop
 
 @section('scripts')
-    <script src="{{ asset('/admin-lte/plugins/select2/js/select2.full.min.js') }}"></script>
     <script>
         // Declarar la constante de la alerta
         const Toast = Swal.mixin({
@@ -98,7 +97,8 @@
                 dataType: 'json',
                 success: function (data) {
                     console.log(data);
-                    $('#precio').val(data.precio.toFixed(2));
+                    let precio = data.precio * 1.16;
+                    $('#precio').val(precio.toFixed(2));
                     $('#unidad').val(data.unidad);
                 },
                 error: function (data) {

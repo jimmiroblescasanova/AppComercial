@@ -19,7 +19,9 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('rfc')->unique();
+            $table->string('phone')->nullable();
             $table->bigInteger('agent_id')->default(0);
+            $table->integer('price_list')->default(1);
             $table->boolean('active')->default(false);
             $table->rememberToken();
             $table->timestamps();

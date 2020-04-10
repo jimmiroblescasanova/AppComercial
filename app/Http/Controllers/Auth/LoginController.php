@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
+use Auth;
 
 class LoginController extends Controller
 {
@@ -32,7 +32,9 @@ class LoginController extends Controller
             return redirect()->intended('/clientes');
         }
 
-        return back()->with('info', 'Credenciales incorrectas o usuario inactivo.');
+        return redirect()->back()
+            ->withInput()
+            ->with('info', 'Credenciales incorrectas o usuario inactivo.');
     }
 
     public function logout()

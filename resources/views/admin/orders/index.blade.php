@@ -14,12 +14,13 @@
                 <thead>
                 <tr>
                     <th></th>
-                    <th>id</th>
-                    <th>fecha</th>
-                    <th>cliente</th>
-                    <th>total</th>
-                    <th>estado</th>
-                    <th>opciones</th>
+                    <th>ID</th>
+                    <th>Fecha</th>
+                    <th>Cliente</th>
+                    <th>Total</th>
+                    <th>Estado</th>
+                    <th>Última actualización</th>
+                    <th>Opciones</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -31,6 +32,7 @@
                         <td>{{ $order->cliente->name }}</td>
                         <td class="text-right">$ {{ convertir_a_numero($order->total) }}</td>
                         <td class="text-center">{!! makeBadgeOrders($order->status) !!}</td>
+                        <td>{{ $order->updated_at->diffForHumans() }}</td>
                         <td class="text-right">
                             <a class="btn btn-xs btn-primary" href="{{ route('admin.orders.show', $order) }}"><i class="fas fa-eye"></i> Ver</a>
                             @if ($order->status === 1)

@@ -11,12 +11,14 @@
                         <thead>
                         <tr>
                             <th></th>
-                            <th>nombre</th>
-                            <th>rfc</th>
-                            <th>email</th>
-                            <th>agente</th>
-                            <th>activo</th>
-                            <th>opciones</th>
+                            <th>Nombre</th>
+                            <th>RFC</th>
+                            <th>Teléfono</th>
+                            <th>Email</th>
+                            <th>Lista de precios</th>
+                            <th>Agente</th>
+                            <th>Activo</th>
+                            <th>Opciones</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -25,7 +27,9 @@
                                 <td></td>
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->rfc }}</td>
+                                <td>{{ $user->phone }}</td>
                                 <td>{{ $user->email }}</td>
+                                <td>{{ $user->price_list }}</td>
                                 <td>
                                     @if ($user->agent_id != 0)
                                         {{ $user->agente->CNOMBREAGENTE }}
@@ -54,6 +58,12 @@
                                                 data-toggle="modal"
                                                 data-target="#modal-default"
                                             >Cambiar agente</a>
+                                                <a href="#"
+                                                   class="dropdown-item"
+                                                   data-cliente="{{ $user->id }}"
+                                                   data-toggle="modal"
+                                                   data-target="#modal-precios"
+                                                >Asignar lista</a>
                                         </div>
                                     </div>
                                 </td>
@@ -65,41 +75,8 @@
             </div>
         </div>
     </div>
-    <div class="modal fade" tabindex="-1" id="modal-default">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title">Asignar agente</h4>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <form action="{{ route('admin.users.agent-assoc') }}" method="POST">
-                @csrf
-                <input type="hidden" name="user" value="">
-                <div class="modal-body">
-                    <div class="form-group">
-                      <label for="agente">Seleccionar un agente:</label>
-                      <select class="form-control select2" name="agente" id="agente">
-                        @forelse ($agents as $id => $nombre)
-                            <option value="{{ $id }}">{{ $nombre }}</option>
-                        @empty
-                            <option value="">No existen agentes creados</option>
-                        @endforelse
-                      </select>
-                    </div>
-                </div>
-                <div class="modal-footer justify-content-between">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                    <button type="submit" class="btn btn-primary">Guardar cambios</button>
-                </div>
-            </form>
-          </div>
-          <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-      </div>
-      <!-- /.modal -->
+    @include('partials.modals.select-agent')
+    @include('partials.modals.price-list', ['route' => route('admin.users.changePrice')])
 @endsection
 
 @section('scripts')
@@ -115,6 +92,14 @@
         });
 
         $('#modal-default').on('show.bs.modal', function (event) {
+            const button = $(event.relatedTarget);
+            const cliente = button.data('cliente');
+            const modal = $(this);
+
+            modal.find('input[name="user"]').val(cliente);
+        });
+
+        $('#modal-precios').on('show.bs.modal', function (event) {
             const button = $(event.relatedTarget);
             const cliente = button.data('cliente');
             const modal = $(this);

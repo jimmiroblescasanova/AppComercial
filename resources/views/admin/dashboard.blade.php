@@ -16,6 +16,7 @@
                             <th>ID</th>
                             <th>Cliente</th>
                             <th>Estado</th>
+                            <th>&nbsp;</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -24,10 +25,11 @@
                                 <td><a href="{{ route('admin.orders.show', $order) }}">{{ $order->id }}</a></td>
                                 <td>{{ $order->cliente->name }}</td>
                                 <td>{!! makeBadgeOrders($order->status) !!}</td>
+                                <td>{{ $order->date->diffForHumans() }}</td>
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="3">No hay registros</td>
+                                <td colspan="4">No hay registros</td>
                             </tr>
                         @endforelse
                         </tbody>

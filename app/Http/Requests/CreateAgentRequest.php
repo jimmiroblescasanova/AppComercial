@@ -24,14 +24,19 @@ class CreateAgentRequest extends FormRequest
      */
     public function rules()
     {
-        return [
+        $rules = [
             'name' => 'required|string|min:5',
-            'email' => 'required|email|unique:agents,email',
+            'email' => 'required|email|unique:agents',
             'password' => 'required|string|min:6|confirmed',
-            'agent_id' => [
-                'required',
-                Rule::unique('agents', 'id')->ignore(0),
-            ],
         ];
+
+        if ($this->agent_id != 0)
+        {
+            $rules['agent_id'] = 'required|unique:agents,agent_id';
+        } else {
+            $rules['agent_id'] = 'required';
+        }
+
+        return $rules;
     }
 }
