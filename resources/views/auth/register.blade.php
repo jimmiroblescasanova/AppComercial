@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="login-logo">
-        <a href="#"><b>Mercalub</b> Registro</a>
+        <a href="/"><b>Mercalub</b> Registro</a>
     </div>
 
     <!-- /.login-logo -->
@@ -10,15 +10,14 @@
         <div class="card-body login-card-body">
             <p class="login-box-msg">Formulario de registro</p>
 
-            <form action="{{ route('register.store') }}" method="POST">
+            <form action="{{ route('register.store') }}" method="POST" novalidate>
                 @csrf
-                {!! $errors->first('name', '<span class="text-muted">:message</span>') !!}
                 <div class="input-group mb-3">
                     <label for="name" class="sr-only">Nombre completo o razón social</label>
                     <input type="text"
                            name="name"
                            id="name"
-                           class="form-control"
+                           class="form-control {{ $errors->first('name') ? 'is-invalid' : '' }}"
                            placeholder="Nombre completo o razón social"
                            value="{{ old('name') }}">
                     <div class="input-group-append">
@@ -26,15 +25,15 @@
                             <span class="fas fa-user"></span>
                         </div>
                     </div>
+                    {!! $errors->first('name', '<div class="invalid-feedback">:message</div>') !!}
                 </div>
 
-                {!! $errors->first('rfc', '<span class="text-muted">:message</span>') !!}
                 <div class="input-group mb-3">
                     <label for="rfc" class="sr-only">RFC</label>
                     <input type="text"
                            name="rfc"
                            id="rfc"
-                           class="form-control"
+                           class="form-control {{ $errors->first('rfc') ? 'is-invalid' : '' }}"
                            placeholder="RFC"
                            value="{{ old('rfc') }}">
                     <div class="input-group-append">
@@ -42,15 +41,15 @@
                             <span class="fas fa-fingerprint"></span>
                         </div>
                     </div>
+                    {!! $errors->first('rfc', '<div class="invalid-feedback">:message</div>') !!}
                 </div>
 
-                {!! $errors->first('phone', '<span class="text-muted">:message</span>') !!}
                 <div class="input-group mb-3">
                     <label for="phone" class="sr-only">Teléfono</label>
                     <input type="number"
                            name="phone"
                            id="phone"
-                           class="form-control"
+                           class="form-control {{ $errors->first('phone') ? 'is-invalid' : '' }}"
                            placeholder="Teléfono"
                            value="{{ old('phone') }}">
                     <div class="input-group-append">
@@ -58,13 +57,13 @@
                             <span class="fas fa-phone"></span>
                         </div>
                     </div>
+                    {!! $errors->first('phone', '<div class="invalid-feedback">:message</div>') !!}
                 </div>
 
-                {!! $errors->first('email', '<span class="text-muted">:message</span>') !!}
                 <div class="input-group mb-3">
                     <label for="email" class="sr-only">Email</label>
                     <input type="email"
-                           class="form-control"
+                           class="form-control {{ $errors->first('email') ? 'is-invalid' : '' }}"
                            name="email"
                            id="email"
                            placeholder="Email"
@@ -74,13 +73,13 @@
                             <span class="fas fa-envelope"></span>
                         </div>
                     </div>
+                    {!! $errors->first('email', '<div class="invalid-feedback">:message</div>') !!}
                 </div>
 
-                {!! $errors->first('password', '<span class="text-muted">:message</span>') !!}
                 <div class="input-group mb-3">
                     <label for="password" class="sr-only">Contraseña</label>
                     <input type="password"
-                           class="form-control"
+                           class="form-control  {{ $errors->first('password') ? 'is-invalid' : '' }}"
                            name="password"
                            id="password"
                            placeholder="Contraseña">
@@ -89,6 +88,7 @@
                             <span class="fas fa-lock"></span>
                         </div>
                     </div>
+                    {!! $errors->first('password', '<div class="invalid-feedback">:message</div>') !!}
                 </div>
 
                 <div class="input-group mb-3">

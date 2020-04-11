@@ -13,16 +13,21 @@
 
             <form action="{{ route('password.validate-email') }}" method="post">
                 @csrf
-                {!! $errors->first('email', '<span class="text-muted">:message</span>') !!}
                 <div class="input-group mb-3">
                     <label for="email" class="sr-only">Correo electrónico</label>
-                    <input type="email" id="email" class="form-control" name="email" placeholder="Correo electrónico"
-                           value="{{ old('email') }}" autofocus>
+                    <input type="email"
+                           id="email"
+                           class="form-control {{ $errors->first('email') ? 'is-invalid' : '' }}"
+                           name="email"
+                           placeholder="Correo electrónico"
+                           value="{{ old('email') }}"
+                           autofocus>
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-envelope"></span>
                         </div>
                     </div>
+                    {!! $errors->first('email', '<div class="invalid-feedback">:message</div>') !!}
                 </div>
                 <div class="row">
                     <div class="col-12">

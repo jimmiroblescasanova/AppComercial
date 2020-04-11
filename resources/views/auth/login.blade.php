@@ -11,34 +11,31 @@
         <div class="card-body login-card-body">
             <p class="login-box-msg">Por favor, inicia sesión</p>
 
-            <form action="{{ route('validate') }}" method="post">
+            <form action="{{ route('validate') }}" method="post" novalidate>
                 @csrf
                 <div class="input-group mb-3">
                     <label for="email" class="sr-only">Correo electrónico</label>
-                    <input type="email" id="email" class="form-control" name="email" placeholder="Correo electrónico"
+                    <input type="email" id="email" class="form-control {{ $errors->first('email') ? 'is-invalid' : '' }}" name="email" placeholder="Correo electrónico"
                            value="{{ old('email') }}" autofocus>
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-envelope"></span>
                         </div>
                     </div>
-                    {!! $errors->first('email', '<span class="text-muted">:message</span>') !!}
+                    {!! $errors->first('email', '<div class="invalid-feedback">:message</div>') !!}
                 </div>
                 <div class="input-group mb-3">
                     <label for="password" class="sr-only">Contraseña:</label>
-                    <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña">
+                    <input type="password" class="form-control {{ $errors->first('password') ? 'is-invalid' : '' }}" id="password" name="password" placeholder="Contraseña">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-lock"></span>
                         </div>
                     </div>
-                    {!! $errors->first('password', '<span class="text-muted">:message</span>') !!}
+                    {!! $errors->first('password', '<div class="invalid-feedback">:message</div>') !!}
                 </div>
-                <div class="row">
-                    <div class="col-12">
-                        <button type="submit" class="btn btn-primary btn-block">Ingresar</button>
-                    </div>
-                    <!-- /.col -->
+                <div class="input-group">
+                    <button type="submit" class="btn btn-primary btn-block">Ingresar</button>
                 </div>
             </form>
 
