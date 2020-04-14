@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Agents;
 use Mail;
 use App\User;
-use App\admAgentes;
+use App\Agents;
 use App\Mail\UserActivated;
 use Illuminate\Http\Request;
+use App\Http\Requests\UpdateUserRequest;
 
 class UsersController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth:admin');
+        $this->middleware('auth:admin')->except('update');
     }
 
     public function index()
@@ -25,6 +25,15 @@ class UsersController extends Controller
                 ['active', 1],
             ])->pluck('name', 'id'),
         ]);
+    }
+
+    public function update(UpdateUserRequest $request, $id)
+    {
+        $usuario = User::findOrFail($id);
+        $usuario->update($request->validated());
+        $usuario->save();
+
+        return back()->with('success', 'Datos modificados correctamente.');
     }
 
     public function activate($id)

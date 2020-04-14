@@ -134,7 +134,7 @@
 <!-- ./wrapper -->
 
 <script type="text/javascript">
-    // window.addEventListener("load", window.print());
+    window.addEventListener("load", window.print());
 </script>
 </body>
 </html>

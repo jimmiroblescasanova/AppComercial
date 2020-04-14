@@ -66,7 +66,7 @@
                     <div class="text-center mt-5">
                         <a href="{{ route('clients.order.index') }}" class="btn btn-sm btn-link"><i
                                 class="far fa-hand-point-left"></i> Atrás</a>
-                        <a href="{{ route('admin.orders.print', $order->id) }}" class="btn btn-sm btn-default"><i
+                        <a href="{{ route('admin.orders.print', $order->id) }}" class="btn btn-sm btn-default" target="_blank"><i
                                 class="far fa-print"></i> Imprimir</a>
                     </div>
                 </div>
