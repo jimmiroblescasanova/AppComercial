@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Orders;
+use Auth;
 use App\User;
+use App\Orders;
 use Carbon\Carbon;
 
 class DashboardController extends Controller
@@ -16,10 +17,18 @@ class DashboardController extends Controller
     public function index()
     {
         $today_orders = Orders::whereDate('date', Carbon::today())
+            ->where('agent_id', Auth::guard('admin')->user()->agent_id)
             ->orderBy('id', 'DESC')->get();
 
-        $recibidas = Orders::where('status', '=', 1)->count();
-        $atendidos = Orders::where('status', '=', 2)->count();
+        $recibidas = Orders::where([
+            ['status', '=', 1],
+            ['agent_id', Auth::guard('admin')->user()->agent_id],
+        ])->count();
+
+        $atendidos = Orders::where([
+            ['status', '=', 2],
+            ['agent_id', Auth::guard('admin')->user()->agent_id],
+        ])->count();
 
         $clientes = User::count();
 

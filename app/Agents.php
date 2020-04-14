@@ -2,10 +2,10 @@
 
 namespace App;
 
-use Illuminate\Support\Facades\Hash;
+use Str;
+use Hash;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Str;
 
 /**
  * App\Agents

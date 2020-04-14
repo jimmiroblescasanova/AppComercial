@@ -5,63 +5,67 @@
 @section('content-title', 'Crear un nuevo pedido')
 
 @section('content')
-    <div class="card">
-        <div class="card-body">
-            <div class="row">
-                <div class="col-md-9">
-                    <p>Este formato es para agilizar el proceso de pedido y cotización de clientes de Mercalub.</p>
-                    <p>Todos los precios mostrados ya incluyen IVA</p></div>
-                <div class="col-md-3 text-center">
-                    <p class="h4">TOTAL</p>
-                    <span class="h2">$ </span><span class="h2" id="grandTotal">0.00</span>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <p>Este formato es para agilizar el proceso de pedido y cotización de clientes de Mercalub.</p>
+                            <p>Todos los precios mostrados ya incluyen IVA</p></div>
+                        <div class="col-md-3 text-center">
+                            <p class="h4">TOTAL</p>
+                            <span class="h2">$ </span><span class="h2" id="grandTotal">0.00</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-7">
+                            <label for="producto" class="col-form-label">Seleccionar producto:</label>
+                            <select id="producto" class="form-control select2">
+                                @foreach ($productos as $producto)
+                                    <option value="{{ $producto->CIDPRODUCTO }}">{{ $producto->CCODIGOPRODUCTO }} - {{ $producto->CNOMBREPRODUCTO }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group col-6 col-md-2">
+                            <label for="precio" class="col-form-label">Precio</label>
+                            <input type="text" class="form-control" id="precio" readonly>
+                        </div>
+                        <div class="form-group col-6 col-md-2">
+                            <label for="unidad" class="col-form-label">Unidad</label>
+                            <input type="text" class="form-control" id="unidad" readonly>
+                        </div>
+                        <div class="form-group col-12 col-md-1 align-self-end">
+                            <button class="btn btn-success btn-block" id="agregarProducto">Agregar</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form action="{{ route('clients.order.store') }}" method="post" id="order">
+                                @csrf
+                                <table class="table table-sm calculator">
+                                    <thead>
+                                    <tr>
+                                        <th style="width: 50%;">productos</th>
+                                        <th style="width: 10%">precio</th>
+                                        <th style="width: 20%;">unidad</th>
+                                        <th style="width: 10%">cantidad</th>
+                                        <th style="width: 10%">&nbsp;</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="tableContent">
+                                    </tbody>
+                                </table>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="form-group col-md-7">
-                    <label for="producto" class="col-form-label">Seleccionar producto:</label>
-                    <select id="producto" class="form-control select2">
-                        @foreach ($productos as $producto)
-                            <option value="{{ $producto->CIDPRODUCTO }}">{{ $producto->CCODIGOPRODUCTO }} - {{ $producto->CNOMBREPRODUCTO }}</option>
-                        @endforeach
-                    </select>
+                <div class="card-footer">
+                    <div class="float-right">
+                        <button class="btn btn-primary btn-sm" id="calculateTotal"><i class="fas fa-calculator"></i> Calcular total</button>
+                        <button class="btn btn-success btn-sm" id="sendForm"><i class="fas fa-check"></i> Terminar</button>
+                    </div>
                 </div>
-                <div class="form-group col-6 col-md-2">
-                    <label for="precio" class="col-form-label">Precio</label>
-                    <input type="text" class="form-control" id="precio" readonly>
-                </div>
-                <div class="form-group col-6 col-md-2">
-                    <label for="unidad" class="col-form-label">Unidad</label>
-                    <input type="text" class="form-control" id="unidad" readonly>
-                </div>
-                <div class="form-group col-12 col-md-1 align-self-end">
-                    <button class="btn btn-success btn-block" id="agregarProducto">Agregar</button>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <form action="{{ route('clients.order.store') }}" method="post" id="order">
-                        @csrf
-                        <table class="table table-sm calculator">
-                            <thead>
-                            <tr>
-                                <th style="width: 50%;">productos</th>
-                                <th style="width: 10%">precio</th>
-                                <th style="width: 20%;">unidad</th>
-                                <th style="width: 10%">cantidad</th>
-                                <th style="width: 10%">&nbsp;</th>
-                            </tr>
-                            </thead>
-                            <tbody id="tableContent">
-                            </tbody>
-                        </table>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div class="card-footer">
-            <div class="float-right">
-                <button class="btn btn-primary btn-sm" id="calculateTotal"><i class="fas fa-calculator"></i> Calcular total</button>
-                <button class="btn btn-success btn-sm" id="sendForm"><i class="fas fa-check"></i> Terminar</button>
             </div>
         </div>
     </div>

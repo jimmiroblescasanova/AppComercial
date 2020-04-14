@@ -70,7 +70,7 @@ class AdminAgentsController extends Controller
         ]);
 
         $agente = Agents::findOrFail($id);
-        $agente->password = \Hash::make($validData['password']);
+        $agente->password = $validData['password'];
         $agente->update();
 
         return redirect()->route('admin.agents.index')
