@@ -12,7 +12,11 @@
                     <div class="row">
                         <div class="col-md-9">
                             <p>Este formato es para agilizar el proceso de pedido y cotización de clientes de Mercalub.</p>
-                            <p>Todos los precios mostrados ya incluyen IVA</p></div>
+                            <small>Todos los precios ya incluyen IVA.</small><br>
+                            <small>Todos los precios son en pesos mexicanos (MXN).</small><br>
+                            <small>Si no desea factura, se deberá desmarcar la casilla de abajo.</small><br>
+                            <small>Si el pedido ha sido marcado como atendido, no podrá ser cancelado.</small>
+                        </div>
                         <div class="col-md-3 text-center">
                             <p class="h4">TOTAL</p>
                             <span class="h2">$ </span><span class="h2" id="grandTotal">0.00</span>

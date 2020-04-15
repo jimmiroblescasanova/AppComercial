@@ -18,9 +18,9 @@
                         </p>
                         <hr>
 
-                        <strong><i class="fas fa-user-tie mr-1"></i> Agente</strong>
+                        <strong><i class="fas fa-receipt mr-1"></i> Uso de CFDi</strong>
                         <p class="text-muted">
-                            {{ Auth::user()->agente->CNOMBREAGENTE }}
+                            {{ Auth::user()->uso_cfdi }}
                         </p>
                         <hr>
 
@@ -30,7 +30,13 @@
                         </p>
                         <hr>
 
-                        <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#updateProfile">Modificar datos</button>
+                        <strong><i class="fas fa-user-tie mr-1"></i> Agente</strong>
+                        <p class="text-muted">
+                            {{ Auth::user()->agente->CNOMBREAGENTE }}
+                        </p>
+                        <hr>
+
+                        <a href="{{ route('clients.edit') }}" class="btn btn-primary btn-block">Modificar datos</a>
                     </div>
                 </div>
             </div>
@@ -69,7 +75,6 @@
             </div>
         </div>
     </div>
-    @include('partials.modals.update-profile', ['cliente' => Auth::user()->id])
 @stop
 
 @section('scripts')

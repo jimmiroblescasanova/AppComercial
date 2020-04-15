@@ -18,8 +18,9 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('rfc')->unique();
             $table->string('phone')->nullable();
+            $table->string('rfc')->unique();
+            $table->string('uso_cfdi')->nullable()->default('P01');
             $table->bigInteger('agent_id')->default(0);
             $table->integer('price_list')->default(1);
             $table->boolean('active')->default(false);

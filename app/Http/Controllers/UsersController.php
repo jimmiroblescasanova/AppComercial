@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use Mail;
 use App\User;
 use App\Agents;
@@ -13,7 +14,8 @@ class UsersController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth:admin')->except('update');
+        $this->middleware('auth:admin')->except('edit', 'update');
+        $this->middleware('auth')->only('edit', 'update');
     }
 
     public function index()
@@ -27,13 +29,18 @@ class UsersController extends Controller
         ]);
     }
 
-    public function update(UpdateUserRequest $request, $id)
+    public function edit()
     {
-        $usuario = User::findOrFail($id);
+        return view('public.users.edit');
+    }
+
+    public function update(UpdateUserRequest $request)
+    {
+        $usuario = User::findOrFail(Auth::user()->id);
         $usuario->update($request->validated());
         $usuario->save();
 
-        return back()->with('success', 'Datos modificados correctamente.');
+        return redirect()->route('clients.home')->with('success', 'Datos modificados correctamente.');
     }
 
     public function activate($id)

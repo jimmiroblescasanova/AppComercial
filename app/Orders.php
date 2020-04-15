@@ -31,7 +31,7 @@ use Illuminate\Database\Eloquent\Model;
 class Orders extends Model
 {
     //
-    protected $fillable = ['date', 'user_id', 'agent_id', 'total', 'invoice'];
+    protected $fillable = ['date', 'user_id', 'agent_id', 'total', 'invoice', 'uso_cfdi'];
 
     protected $dates = [
         'date',

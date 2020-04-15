@@ -21,5 +21,7 @@ class AgentsTableSeeder extends Seeder
             'superAdmin'    => true,
             'created_at'    => \Carbon\Carbon::now(),
         ]);
+
+        factory(\App\Agents::class)->times(10)->create();
     }
 }

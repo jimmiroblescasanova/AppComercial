@@ -27,17 +27,18 @@ class UpdateUserRequest extends FormRequest
         return [
             'name'  => 'required|string|min:6',
             'phone' => 'nullable|digits:10',
+            'uso_cfdi' => 'nullable|string|max:3',
             'rfc' => [
                 'required',
                 'string',
                 'min:12',
                 'max:13',
-                Rule::unique('users')->ignore($this->id),
+                Rule::unique('users')->ignore(\Auth::user()->id),
             ],
             'email' => [
                 'required',
                 'email',
-                Rule::unique('users')->ignore($this->id),
+                Rule::unique('users')->ignore(\Auth::user()->id),
             ],
         ];
     }

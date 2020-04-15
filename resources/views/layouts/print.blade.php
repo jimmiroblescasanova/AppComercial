@@ -32,10 +32,11 @@
                 Emisor
                 <address>
                     <strong>MERCALUB SA DE CV</strong><br>
-                    795 Folsom Ave, Suite 600<br>
-                    San Francisco, CA 94107<br>
-                    Phone: (804) 123-5432<br>
-                    Email: info@almasaeedstudio.com
+                    Avenida José Lopez Portillo, Región 94 <br>
+                    Manzana 20, lotes 10 y 11 <br>
+                    Cancún, Quintana Roo, CP 77517 <br>
+                    Teléfono: (998) 252-0441 y 252-0443<br>
+                    Email: contacto@mercalub.com
                 </address>
             </div>
             <!-- /.col -->
@@ -43,10 +44,10 @@
                 Cliente
                 <address>
                     <strong>{{ $order->cliente->name }}</strong><br>
-                    {{--795 Folsom Ave, Suite 600<br>
-                    San Francisco, CA 94107<br>--}}
+                    RFC: {{ $order->cliente->rfc }}<br>
                     Teléfono: {{ $order->cliente->phone }}<br>
-                    Email: {{ $order->cliente->email }}
+                    Email: {{ $order->cliente->email }}<br>
+                    Uso de CFDi: {{ $order->cliente->uso_cfdi }}
                 </address>
             </div>
             <!-- /.col -->
@@ -55,7 +56,7 @@
                 <br>
                 <b>Pedido ID:</b> {{ $order->id }}<br>
                 <b>Fecha de recepción:</b> {{ $order->date->format('d-m-Y') }}<br>
-{{--                <b>Account:</b> 968-34567--}}
+                <b>Factura:</b> {{ ($order->invoice) ? 'SI' : 'NO' }}<br>
             </div>
             <!-- /.col -->
         </div>
@@ -101,7 +102,8 @@
                 <img src="../../dist/img/credit/paypal2.png" alt="Paypal">--}}
 
                 <p class="text-muted well well-sm shadow-none" style="margin-top: 10px;">
-                    Todos los precios expresados en este documento incluyen IVA.
+                    Todos los precios expresados en este documento incluyen IVA 16%. <br>
+                    Todos los precios en este documento son en pesos mexicanos (MXN).
                 </p>
             </div>
             <!-- /.col -->

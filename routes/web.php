@@ -22,7 +22,8 @@ Route::namespace('Auth')->group(function () {
 // Panel de clientes
 Route::prefix('clientes')->group(function () {
     Route::get('/', 'HomeController@index')->name('clients.home');
-    Route::patch('/{id}/update', 'UsersController@update')->name('clients.update');
+    Route::get('/edit', 'UsersController@edit')->name('clients.edit');
+    Route::patch('/update', 'UsersController@update')->name('clients.update');
 
     // Rutas para los pedidos
     Route::get('/pedidos', 'PublicOrdersController@index')->name('clients.order.index');
