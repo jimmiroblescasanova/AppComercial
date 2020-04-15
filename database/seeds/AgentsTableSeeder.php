@@ -22,6 +22,15 @@ class AgentsTableSeeder extends Seeder
             'created_at'    => \Carbon\Carbon::now(),
         ]);
 
-        factory(\App\Agents::class)->times(10)->create();
+        DB::table('agents')->insert([
+            'name'          => 'Augusto Marí',
+            'email'         => 'gerencia@mercalub.com',
+            'password'      => Hash::make('gerencia'),
+            'agent_id'      => 0,
+            'superAdmin'    => true,
+            'created_at'    => \Carbon\Carbon::now(),
+        ]);
+
+//        factory(\App\Agents::class)->times(10)->create();
     }
 }
