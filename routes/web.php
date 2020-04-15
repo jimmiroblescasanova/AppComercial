@@ -1,5 +1,9 @@
 <?php
 
+Route::get('privacy-agreement', function (){
+    return view('layouts.privacy-agreement');
+})->middleware('auth')->name('agreement');
+
 Route::post('/ajax/get-price/', 'PublicOrdersController@searchPrice')->name('ajax.price');
 Route::post('/ajax/update-total/', 'AdminOrdersController@update_total')->name('ajax.updateTotal');
 Route::post('/ajax/change-order-price/', 'AdminOrdersController@change_price')->name('ajax.changePrice');

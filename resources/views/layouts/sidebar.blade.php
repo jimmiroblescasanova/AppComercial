@@ -95,6 +95,12 @@
                             </li>
                         </ul>
                     </li>
+                    <li class="nav-item">
+                        <a href="{{ route('agreement') }}" class="nav-link {{ setActive('agreement') }}">
+                            <i class="nav-icon fas fa-handshake"></i>
+                            <p>Aviso de privacidad</p>
+                        </a>
+                    </li>
                 @endif
             </ul>
         </nav>

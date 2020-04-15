@@ -8,11 +8,8 @@
     <div class="row">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">
-                    Se mostrarán todos los pedidos...
-                </div>
                 <div class="card-body p-0">
-                    <table class="table table-striped table-sm">
+                    <table class="table table-striped">
                         <thead>
                         <tr>
                             <th>id</th>
