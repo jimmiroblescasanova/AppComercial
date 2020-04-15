@@ -17,21 +17,11 @@ class DashboardController extends Controller
     public function index()
     {
         $today_orders = Orders::whereDate('date', Carbon::today())
-            ->where('agent_id', Auth::guard('admin')->user()->agent_id)
-            ->orderBy('id', 'DESC')->get();
+            ->orderBy('id', 'DESC')->take(15)->get();
 
-        $recibidas = Orders::where([
-            ['status', '=', 1],
-            ['agent_id', Auth::guard('admin')->user()->agent_id],
-        ])->count();
-
-        $atendidos = Orders::where([
-            ['status', '=', 2],
-            ['agent_id', Auth::guard('admin')->user()->agent_id],
-        ])->count();
-
+        $recibidas = Orders::where('status', '=', 1)->count();
+        $atendidos = Orders::where('status', '=', 2)->count();
         $clientes = User::count();
-
 
         return view('admin.dashboard', [
             'today_orders' => $today_orders,

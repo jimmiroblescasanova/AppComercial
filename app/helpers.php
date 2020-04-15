@@ -30,6 +30,9 @@ function makeBadgeOrders($status)
         case 0:
             return '<span class="badge badge-pill badge-danger">Cancelada</span>';
             break;
+        default:
+            return '';
+            break;
     }
 }
 
@@ -39,5 +42,14 @@ function makeBadgeStatus(bool $active)
         return '<span class="badge badge-success">Activo</span>';
     } else {
         return '<span class="badge badge-danger">Inactivo</span>';
+    }
+}
+
+function makeBadgeInvoice(bool $invoice)
+{
+    if ($invoice) {
+        return '<span class="badge badge-primary">Factura solicitada</span>';
+    } else {
+        return '<span class="badge badge-danger">Sin factura</span>';
     }
 }

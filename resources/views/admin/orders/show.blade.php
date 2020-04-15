@@ -62,6 +62,9 @@
                                 <p class="text-sm">Nombre del cliente:
                                     <b class="d-block">{{ $order->cliente->name }}</b>
                                 </p>
+                                <p class="text-sm">
+                                    <b class="d-block">{!! makeBadgeInvoice($order->invoice) !!}</b>
+                                </p>
                                 <p class="text-sm">Estado del pedido:
                                     <span class="d-block">{!! makeBadgeOrders($order->status) !!}</span>
                                 </p>

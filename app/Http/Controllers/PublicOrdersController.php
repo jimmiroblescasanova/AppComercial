@@ -42,6 +42,7 @@ class PublicOrdersController extends Controller
             'user_id' => Auth::user()->id,
             'agent_id' => Auth::user()->agent_id,
             'total' => '0',
+            'invoice' => $request['invoice'],
         ];
 
         $order = new Orders($order_data);

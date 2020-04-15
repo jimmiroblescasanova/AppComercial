@@ -56,6 +56,10 @@
                                     <tbody id="tableContent">
                                     </tbody>
                                 </table>
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="invoice" name="invoice" value="1" checked>
+                                    <label class="form-check-label" for="invoice">Solicitar factura</label>
+                                </div>
                             </form>
                         </div>
                     </div>

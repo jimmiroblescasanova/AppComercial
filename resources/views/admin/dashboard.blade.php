@@ -14,17 +14,17 @@
                         <table class="table table-striped">
                             <thead>
                             <tr>
-                                <th>ID</th>
                                 <th>Cliente</th>
+                                <th>Total</th>
                                 <th>Estado</th>
-                                <th>&nbsp;</th>
+                                <th>Última actualización</th>
                             </tr>
                             </thead>
                             <tbody>
                             @forelse ($today_orders as $order)
                                 <tr>
-                                    <td><a href="{{ route('admin.orders.show', $order) }}">{{ $order->id }}</a></td>
                                     <td>{{ $order->cliente->name }}</td>
+                                    <td>$ {{ convertir_a_numero($order->total) }}</td>
                                     <td>{!! makeBadgeOrders($order->status) !!}</td>
                                     <td>{{ $order->date->diffForHumans() }}</td>
                                 </tr>
