@@ -36,7 +36,7 @@ function makeBadgeOrders($status)
     }
 }
 
-function makeBadgeStatus(bool $active)
+function makeBadgeStatus($active)
 {
     if ($active) {
         return '<span class="badge badge-success">Activo</span>';
@@ -45,7 +45,7 @@ function makeBadgeStatus(bool $active)
     }
 }
 
-function makeBadgeInvoice(bool $invoice)
+function makeBadgeInvoice($invoice)
 {
     if ($invoice) {
         return '<span class="badge badge-primary">Factura solicitada</span>';
