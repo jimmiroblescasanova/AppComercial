@@ -50,7 +50,7 @@ class UsersController extends Controller
         $usuario->active = !$usuario->active;
 
         if ($usuario->active) {
-            Mail::to(env('MAIL_TO_ADMIN'))->send(new UserActivated($usuario));
+            Mail::to($usuario->email)->send(new UserActivated($usuario));
         }
 
         $usuario->save();
